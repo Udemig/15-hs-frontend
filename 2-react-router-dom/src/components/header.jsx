@@ -15,6 +15,9 @@ const Header = () => {
           <NavLink to="/ürünler" className="px-4 py-1 rounded-md border border-zinc-300">
             Ürünler
           </NavLink>
+          <NavLink to="/kategori/roman" className="px-4 py-1 rounded-md border border-zinc-300">
+            Kategori
+          </NavLink>
         </nav>
       </div>
     </header>
