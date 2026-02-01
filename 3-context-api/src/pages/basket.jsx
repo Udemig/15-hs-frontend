@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { BasketContext } from "../context/basketContext";
 import BasketItem from "../components/basketItem";
 import { Link } from "react-router-dom";
+import BasketInfo from "../components/basketInfo";
 
 const Basket = () => {
   // basket context'e abone olup sepet verisine eriş
@@ -19,17 +20,21 @@ const Basket = () => {
         )}
       </div>
 
-      <div className="grid gap-5">
-        {basket.length === 0 ? (
-          <p className="text-center my-40 text-xl grid gap-5">
-            <span>Sepetiniz Boş</span>
-            <Link to="/" className="text-blue-500 underline">
-              Ürünler'e Git
-            </Link>
-          </p>
-        ) : (
-          basket.map((product) => <BasketItem product={product} />)
-        )}
+      <div className="flex flex-col xl:flex-row gap-10">
+        <div className="grid gap-5 flex-1">
+          {basket.length === 0 ? (
+            <p className="text-center my-40 text-xl grid gap-5">
+              <span>Sepetiniz Boş</span>
+              <Link to="/" className="text-blue-500 underline">
+                Ürünler'e Git
+              </Link>
+            </p>
+          ) : (
+            basket.map((product) => <BasketItem product={product} />)
+          )}
+        </div>
+
+        <BasketInfo />
       </div>
     </div>
   );

@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+/* Tailwind'de Değişken Tanımla */
+@theme {
+  /* Varsayılan font değiştirelim */
+  --font-sans: "Roboto", sans-serif;
+  /* Kendi renk tonlarını tanımla */
+  --color-grey: #3f3f3f;
+  --color-white: #ffffff;
+  --color-black: #0f0f0f;
+  --color-dark: #272727;
+}
+
+/* Jsx elementlerini stillendirelim */
+@layer base {
+  body {
+    @apply bg-black text-white;
+  }
+
+  button,
+  a {
+    @apply cursor-pointer transition duration-300;
+  }
+}
+
+/* Sınıflar */
+@layer components {
+  .icon {
+    @apply p-2 hover:bg-zinc-700 transition rounded-full text-xl;
+  }
+}
+
+/* Scrollbar */
+*::-webkit-scrollbar {
+  background: #0f0f0f;
+  width: 7px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #3f3f3f;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #5b5b5b;
+}
+
+/* Animasyon */
+@keyframes move {
+  from {
+    left: -500px;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+.slide-in {
+  animation: move 400ms ease;
+}

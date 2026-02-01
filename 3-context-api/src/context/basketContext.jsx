@@ -27,8 +27,22 @@ export const BasketProvider = ({ children }) => {
     }
   };
 
-  //TODO: sepetten ürün çıkar
-  const removeFromBasket = () => {};
+  // sepetten ürün çıkar
+  const removeFromBasket = (productId) => {
+    const found = basket.find((i) => i.id === productId);
+
+    if (found.amount > 1) {
+      // miktarı azalt
+      //a) nesneyi güncelle
+      const updated = { ...found, amount: found.amount - 1 };
+
+      //b) sepet dizisini güncelle
+      setBasket(basket.map((i) => (i.id === updated.id ? updated : i)));
+    } else {
+      // sepetten kaldır
+      setBasket(basket.filter((i) => i.id !== productId));
+    }
+  };
 
   // sepeti temizle
   const clearBasket = () => {
