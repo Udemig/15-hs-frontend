@@ -30,6 +30,10 @@
   .icon {
     @apply p-2 hover:bg-zinc-700 transition rounded-full text-xl;
   }
+
+  .page {
+    @apply h-[100vh-56px] w-full flex-1 py-6 px-4;
+  }
 }
 
 /* Scrollbar */

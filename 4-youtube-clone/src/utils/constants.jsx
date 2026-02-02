@@ -44,11 +44,11 @@ export const navItems = [
   {
     title: "Keşfet",
     items: [
-      { icon: <MdOutlineWhatshot />, name: "Trendler", path: "/?category=trendler" },
-      { icon: <FaMusic />, name: "Müzik", path: "/?category=müzik" },
-      { icon: <PiRadioButtonBold />, name: "Canlı", path: "/?category=canlı" },
-      { icon: <MdOutlineSportsEsports />, name: "Oyun", path: "/?category=oyun" },
-      { icon: <FaTrophy />, name: "Spor", path: "/?category=spor" },
+      { icon: <MdOutlineWhatshot />, name: "Trendler", path: "/category/trendler" },
+      { icon: <FaMusic />, name: "Müzik", path: "/category/müzik" },
+      { icon: <PiRadioButtonBold />, name: "Canlı", path: "/category/canlı" },
+      { icon: <MdOutlineSportsEsports />, name: "Oyun", path: "/category/oyun" },
+      { icon: <FaTrophy />, name: "Spor", path: "/category/spor" },
     ],
   },
   {
