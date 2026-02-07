@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { MdMenu, MdMic, MdApps } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
 import { IoIosVideocam } from "react-icons/io";
@@ -8,7 +8,20 @@ import { useContext } from "react";
 import { SidebarContext } from "../../context/sidebar-context";
 
 const Header = () => {
+  const navigate = useNavigate();
   const { toggleSidebar } = useContext(SidebarContext);
+  const [searchParams] = useSearchParams();
+
+  const handleSubmit = (e) => {
+    // sayfa yenilemesini engelle
+    e.preventDefault();
+
+    // inputtaki yazıya eriş
+    const text = e.target[0].value;
+
+    // arama sonuçları sayfasına yönlendir
+    navigate(`/results?search_query=${text}`);
+  };
 
   return (
     <header className="flex justify-between gap-6 md:gap-8 px-4 h-14">
@@ -26,11 +39,12 @@ const Header = () => {
 
       {/* Orta: Form */}
       <div className="flex-1 max-w-182 flex justify-center items-center">
-        <form className="flex w-full max-w-160 items-center">
+        <form onSubmit={handleSubmit} className="flex w-full max-w-160 items-center">
           <div className="flex flex-1">
             <input
               type="text"
               placeholder="Ara"
+              defaultValue={searchParams.get("search_query")}
               className="w-full bg-[#121212] border border-grey h-10 px-4 text-white placeholder:text-zinc-400 focus:border-blue-500 outline-none rounded-l-full"
             />
             <button className="w-16 h-10 bg-[#222222] border border-grey rounded-r-full flex justify-center items-center hover:bg-grey">

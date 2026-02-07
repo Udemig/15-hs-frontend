@@ -16,7 +16,7 @@
 /* Jsx elementlerini stillendirelim */
 @layer base {
   body {
-    @apply bg-black text-white;
+    @apply bg-black text-white overflow-y-hidden;
   }
 
   button,
@@ -33,6 +33,10 @@
 
   .page {
     @apply h-[100vh-56px] w-full flex-1 py-6 px-4;
+  }
+
+  .comment-field {
+    @apply hover:bg-zinc-800 px-2 py-1 rounded transition duration-300 cursor-pointer;
   }
 }
 

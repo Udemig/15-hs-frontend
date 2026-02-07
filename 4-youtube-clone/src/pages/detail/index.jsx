@@ -7,6 +7,7 @@ import Description from "./description";
 import Comments from "./comments";
 import Spinner from "../../components/loader/spinner";
 import Error from "../../components/error";
+import Card from "../../components/card";
 
 const Detail = () => {
   const [loading, setLoading] = useState(true);
@@ -54,7 +55,15 @@ const Detail = () => {
         </div>
       </div>
 
-      <div className="lg:w-100">Önerilenler</div>
+      <div className="lg:w-100">
+        <h2 className="text-lg font-semibold mb-4 hidden lg:block">İlgili Videolar</h2>
+
+        <div className="grid gap-2 @container">
+          {video.relatedVideos.data.map((video, key) => (
+            <Card video={video} key={key} isRow />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

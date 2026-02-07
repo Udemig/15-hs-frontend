@@ -15,7 +15,7 @@ const App = () => {
         <div className="flex w-full">
           <Sidebar />
 
-          <main className="flex-1 overflow-x-hidden overflow-y-auto">
+          <main className="flex-1 h-screen w-full overflow-x-hidden overflow-y-auto">
             <Routes>
               <Route path="/" element={<Feed />} />
               <Route path="/category/:category" element={<Category />} />
