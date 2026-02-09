@@ -36,3 +36,52 @@
 - Ve aynı hesaplama tekrar gerektiğinde yeniden hesaplamak yerine cache'de saklanan sonucu kullanır
 - Bu da ilk hespalamadan sonraki hesaplamaların sonucunu daha hızlı elde edilmesini sağlar.
 - Bu seneryo hesaplamadaki girdiler değişmediği durum için geçerlidir, girdi değişirse hesaplama baştan yapılmalı
+
+## React.memo() - Component Gerekesiz Renderını Önler
+
+- Component'ların aldığı prop değişmediği müddetçe render olmasının önüne
+- Kapsayı elementlerin render olduğunda alt elementlerin de render olmasının önüne geçer
+
+## useCallback() - Fonksiyonnun Yeniden Oluşmasını Önler
+
+- Her render sırasında fonksiyonun yeniden oluşturup farklı bir referansa sahip olmasını engellemek istersek useCallback kullanırız.
+- useCallback() bağımlılık dizisindeki değer değişmedikçe fonksiyonun yeniden oluşmasını engeller
+
+# Javascript Veri Türlier
+
+1. **Primitve Types**
+
+- Primitive tipler, değerin kendisini tutar.
+- Hafızada sabit bir alan kaplar
+- Bir değişkene atandığında kopyası oluşturulur (Immutable - Değiştirelemez)
+- string, number, boolean, null, undefined, symbol, bigint
+
+2. **Non-Primitive (Referance) Types**
+
+- Referans üzerinde saklanır ve değerleri değiştirebilir
+- Billekte değişkenin referansı saklanır
+- object, array, function, cLass
+
+```JSX
+// arr parametresi ve numbers dizisi aynı referansı paylaştığı için arr dizisini yaptığımız güncelleme numbers dizisine de etki eder
+function addItem(arr) {
+  arr.push(4);
+}
+
+const numbers = [1, 2, 3];
+addItem(numbers);
+
+console.log(numbers); // 1, 2, 3, 4,
+
+// ----------------------------------------
+// arr ve sayilar dizisi aynı referansı paylaştığı ve sayilar dizisini güncellemek istemediğimiz için güncellemenin referansa etki etmemesi için dizinin bir kopyasını oluşturduk
+function addItemSafe(arr) {
+  return [...arr, 4];
+}
+
+const sayilar = [1, 2, 3];
+const yeniSayilar = addItemSafe(sayilar);
+
+console.log(sayilar); // 1, 2, 3
+console.log(yeniSayilar); // 1, 2, 3, 4
+```
