@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-zinc-900 text-white;
+  }
+
+  button {
+    @apply cursor-pointer hover:brightness-75 transition duration-300;
+  }
+}
