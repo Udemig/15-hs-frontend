@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": "0cdcd286-e85c-43b0-9248-422ce2aed51d",
+      "text": "Typescript Öğren",
+      "isDone": false,
+      "createdAt": 1771269606704
+    },
+    {
+      "id": "80628aec-2d54-4bfc-b082-85dccbf9e016",
+      "text": "Redux Toolkit 3. Projesi Yap",
+      "isDone": true,
+      "createdAt": 1771269614492
+    }
+  ]
+}

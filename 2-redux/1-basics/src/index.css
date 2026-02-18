@@ -9,3 +9,9 @@
     @apply cursor-pointer hover:brightness-75 transition duration-300;
   }
 }
+
+@layer components {
+  .btn {
+    @apply px-4 py-1 text-sm rounded-md text-shadow-lg text-shadow-black/50;
+  }
+}
