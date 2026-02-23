@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
 
 @import "tailwindcss";
+/* tailwind db.json dosyasını tarayıp sınıf bulamadığı için api istklerinde sayfa yenilemelerine sebep oluyordu bunu engellemek için db.json'u hariç tuttuk */
+@source not "../db.json";
 
 @theme {
   --font-sr: "Sriracha", cursive;

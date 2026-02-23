@@ -17,6 +17,24 @@ const cartReducer = (state = initialState, action) => {
     case AT.CART_SUCCESS:
       return { ...state, isLoading: false, error: null, cart: action.payload };
 
+    case AT.ADD_TO_CART:
+      // sepet dizisine yeni ürünü ekle
+      const newCart = [...state.cart, action.payload];
+
+      return { ...state, cart: newCart };
+
+    case AT.UPDATE_AMOUNT:
+      // miktarı güncellenen ürünü dizide değiştir
+      const updatedCart = state.cart.map((item) => (item.id === action.payload.id ? action.payload : item));
+
+      return { ...state, cart: updatedCart };
+
+    case AT.DELETE_FROM_CART:
+      // id'si payload ile gelen ürünü diziden kaldır
+      const filtredCart = state.cart.filter((item) => item.id !== action.payload);
+
+      return { ...state, cart: filtredCart };
+
     default:
       return state;
   }
