@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6c63dd;
+  --color-dark: #5a52d5;
+  --color-light: #8b84ff;
+  --color-text: #213547;
+}
+
+@layer base {
+  button {
+    @apply transition duration-300 hover:brightness-75 cursor-pointer;
+  }
+}
+
+@layer components {
+  .marker {
+    width: 10px;
+    height: 10px;
+  }
+}

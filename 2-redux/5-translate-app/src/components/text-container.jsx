@@ -1,10 +1,54 @@
 import { ArrowRight, Volume2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setText } from "../redux/slices/translate-slice";
+import Loader from "./loader";
 
 const TextContainer = () => {
-  const { isLoading, textToTranslate, translatedText } = useSelector((store) => store.translateReducer);
+  const { isLoading, sourceLang, targetLang, textToTranslate, translatedText } = useSelector(
+    (store) => store.translateReducer,
+  );
   const dispatch = useDispatch();
+
+  // çevrilecek metni temizler
+  const handleClear = () => {
+    dispatch(setText(""));
+  };
+
+  // çeviri sonucunu kopyala
+  const handleCopy = () => {
+    window.navigator.clipboard.writeText(translatedText);
+  };
+
+  // kaynak metni seslendir
+  const handleSpeakSource = () => {
+    // devam eden bir seslendirme varsa durdur
+    window.speechSynthesis.cancel();
+
+    // SpeechSynthesisUtterance: seslendirilecek metni ve ayarlarını tutan bir nense oluşturur
+    const utterance = new SpeechSynthesisUtterance(textToTranslate);
+
+    // utterance.lang: hangi dilde / aksanda konuşulacağını belirle
+    if (sourceLang.value) {
+      utterance.lang = sourceLang.value;
+    }
+
+    // oluşturulan utterance nesnesini seslendirmeye başla
+    // tarayıcının ses sentezleme motorunu kullanarak metni sesli olarak okur
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // hedef metni seslendir
+  const handleSpeakTarget = () => {
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(translatedText);
+
+    if (targetLang.value) {
+      utterance.lang = targetLang.value;
+    }
+
+    window.speechSynthesis.speak(utterance);
+  };
 
   return (
     <div className="flex gap-4 mt-6 lg:gap-8 flex-col lg:flex-row">
@@ -14,17 +58,20 @@ const TextContainer = () => {
           <label className="text-sm text-zinc-300">Çevrilecek Metin</label>
 
           <div className="flex items-center gap-3">
-            <button className="btn">
+            <button onClick={handleSpeakSource} className="btn">
               <Volume2 className="size-4" />
               Seslendir
             </button>
 
-            <button className="btn">Temizle</button>
+            <button onClick={handleClear} className="btn">
+              Temizle
+            </button>
           </div>
         </div>
 
         <div>
           <textarea
+            maxLength={500}
             value={textToTranslate}
             onChange={(e) => dispatch(setText(e.target.value))}
             placeholder="Çevirmek istediğiniz metni buraya yazınız"
@@ -45,12 +92,14 @@ const TextContainer = () => {
           <label className="text-sm text-zinc-300">Çeviri Sonucu</label>
 
           <div className="flex items-center gap-3">
-            <button className="btn">
+            <button onClick={handleSpeakTarget} className="btn">
               <Volume2 className="size-4" />
               Seslendir
             </button>
 
-            <button className="btn">Kopyala</button>
+            <button onClick={handleCopy} className="btn">
+              Kopyala
+            </button>
           </div>
         </div>
 
@@ -58,6 +107,7 @@ const TextContainer = () => {
           <textarea className="text-gray-300" disabled value={translatedText} />
 
           {/* todo:loader */}
+          {isLoading && <Loader />}
 
           {!isLoading && !translatedText && !textToTranslate.trim() && (
             <div className="absolute inset-0 grid place-items-center">

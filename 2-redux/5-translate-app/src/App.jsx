@@ -29,7 +29,7 @@ const App = () => {
             <Button />
           </div>
 
-          {/* <History /> */}
+          <History />
 
           <Footer />
         </div>

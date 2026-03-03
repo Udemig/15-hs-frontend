@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ReactSelect from "react-select";
 import { selectStyles } from "../utils/constants";
-import { setSourceLang, setTargetLang } from "../redux/slices/translate-slice";
+import { setSourceLang, setTargetLang, swap } from "../redux/slices/translate-slice";
 
 const LanguageSelector = () => {
   const { isLoading, error, languages } = useSelector((store) => store.languageReducer);
@@ -18,6 +18,11 @@ const LanguageSelector = () => {
   // dili algıla seçeneği
   const detect = { label: "Dili algıla", value: undefined };
 
+  // değiştirme
+  const handleSwap = () => {
+    dispatch(swap());
+  };
+
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3 flex-col lg:flex-row">
@@ -31,6 +36,9 @@ const LanguageSelector = () => {
             value={sourceLang}
             styles={selectStyles}
             onChange={(lang) => {
+              if (lang.value === targetLang.value) {
+                return handleSwap();
+              }
               dispatch(setSourceLang(lang));
             }}
             className="text-black"
@@ -39,7 +47,11 @@ const LanguageSelector = () => {
 
         {/* Değiştirme butonu */}
         <div className="flex justify-center items-center">
-          <button className="size-10 lg:size-12 bg-zinc-700 rounded-full flex justify-center items-center">
+          <button
+            disabled={!sourceLang.value}
+            onClick={handleSwap}
+            className="size-10 lg:size-12 bg-zinc-700 rounded-full flex justify-center items-center disabled:opacity-50"
+          >
             <ArrowLeftRight className="size-5" />
           </button>
         </div>
@@ -54,6 +66,9 @@ const LanguageSelector = () => {
             value={targetLang}
             styles={selectStyles}
             onChange={(lang) => {
+              if (lang.value === sourceLang.value) {
+                return handleSwap();
+              }
               dispatch(setTargetLang(lang));
             }}
             className="text-black"
