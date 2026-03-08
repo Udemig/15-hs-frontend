@@ -1,7 +1,10 @@
 import { Radar } from "lucide-react";
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
+  const { isLoading, error, flights } = useSelector((store) => store.flightReducer);
+
   return (
     <header className="flex justify-between items-center px-4 py-2.5 backdrop-blur-xl border-b border-white/10 bg-white/5 shadow-sm sticky top-0 z-50">
       <Link href="/" className="flex items-center gap-3 hover:scale-[1.02]">
@@ -34,7 +37,15 @@ const Header = () => {
       {/* Durum */}
       <div className="hidden md:flex items-center gap-2">
         <Radar size={15} className={`text-primary`} />
-        <h3 className="text-sm text-text/70 font-medium">125 uçuş bulundu</h3>
+        <h3 className="text-sm text-text/70 font-medium">
+          {isLoading ? (
+            "Radar çalışıyor.."
+          ) : error ? (
+            <p title={error}>Hata oluştu!</p>
+          ) : (
+            `${flights?.length} uçuş bulundu`
+          )}
+        </h3>
       </div>
     </header>
   );

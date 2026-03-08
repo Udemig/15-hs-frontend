@@ -1,10 +1,27 @@
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Polyline, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getIcon } from "../../utils/helpers";
+import { open } from "../../redux/slices/detail-slice";
+import AirportMarker from "./airport-marker";
+import { useEffect } from "react";
+import { getFlights } from "../../redux/actions";
 
 const Map = () => {
+  const dispatch = useDispatch();
   const { flights } = useSelector((store) => store.flightReducer);
+  const { isLoading, info, route, flightId } = useSelector((store) => store.detailReducer);
+
+  useEffect(() => {
+    // 10 saniyede bir tekrar api'dan güncel verileri al
+    const id = setInterval(() => dispatch(getFlights()), 10000);
+
+    // component ekrandan ayrılınca intervalı durdur
+    // componenWillUnmount
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
 
   return (
     <MapContainer className="h-[calc(100vh-63px)]" center={[38.948299, 35.424398]} zoom={6} scrollWheelZoom={true}>
@@ -14,15 +31,31 @@ const Map = () => {
       />
 
       {flights.map((flight) => (
-        <Marker position={[flight.lat, flight.lon]} icon={getIcon(flight)}>
+        <Marker key={flight.flightid} position={[flight.lat, flight.lon]} icon={getIcon(flight, flightId)}>
           <Popup>
             <div className="flex flex-col gap-2">
               <span className="font-semibold">Kod: {flight.callsign}</span>
-              <button className="px-4 py-1 border rounded-sm hover:bg-black/10">Detay</button>
+              <button
+                onClick={() => dispatch(open(flight.flightid))}
+                className="px-4 py-1 border rounded-sm hover:bg-black/10"
+              >
+                Detay
+              </button>
             </div>
           </Popup>
         </Marker>
       ))}
+
+      {/* Kalkış Noktasını İşaretle */}
+      {!isLoading && info && info?.airport?.origin && <AirportMarker info={info.airport.origin} title="Kalkış" />}
+
+      {/* İniş Noktasını İşaretle */}
+      {!isLoading && info && info?.airport?.destination && (
+        <AirportMarker info={info.airport.destination} title="İniş" />
+      )}
+
+      {/* Uçağın gittiği yolu çiz */}
+      {!isLoading && route && <Polyline positions={route} pathOptions={{ color: "red" }} />}
     </MapContainer>
   );
 };

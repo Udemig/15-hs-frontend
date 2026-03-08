@@ -5,6 +5,7 @@ import List from "./pages/list";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getFlights } from "./redux/actions";
+import Modal from "./components/modal";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,8 @@ const App = () => {
           <Route path="/list" element={<List />} />
         </Routes>
       </main>
+
+      <Modal />
     </BrowserRouter>
   );
 };
