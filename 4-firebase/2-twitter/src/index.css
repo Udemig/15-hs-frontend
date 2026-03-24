@@ -7,7 +7,7 @@
   --color-dark: #242424;
   --color-primary: #000000;
   --color-secondary: #e7e0ea;
-  --color-x-blue: #1d9bf0;
+  --color-tw-blue: #1d9bf0;
   --color-tw-gray: #2d3336;
 }
 
@@ -20,5 +20,32 @@
 @layer components {
   .input {
     @apply bg-secondary text-black rounded mt-1 p-2 outline-none shadow-lg focus:shadow-[gray]/70 w-full transition-shadow;
+  }
+
+  .form-icon {
+    @apply hover:bg-tw-blue/20 rounded-full size-9 grid place-items-center cursor-pointer;
+  }
+
+  .submit-button {
+    @apply bg-secondary text-primary font-bold h-9 px-5 py-1.5 rounded-full tracking-wide min-w-26.25 flex justify-center items-center;
+  }
+
+  .post-icon {
+    @apply p-3 rounded-full cursor-pointer transition-all text-zinc-400;
+  }
+
+  .main-container::-webkit-scrollbar {
+    background: black;
+    width: 6px;
+  }
+
+  .main-container::-webkit-scrollbar-thumb {
+    background: rgb(72, 72, 72);
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+  }
+  .main-container::-webkit-scrollbar-thumb:hover {
+    background: rgb(104, 104, 104);
   }
 }
