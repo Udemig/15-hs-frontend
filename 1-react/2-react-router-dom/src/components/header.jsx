@@ -2,20 +2,23 @@ import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="border-b border-zinc-400 shadow">
-      <div className="container flex justify-between">
-        <Link to="/" className="text-2xl font-semibold">
+    <header className="border-bottom shadow-sm py-3">
+      <div className="container d-flex justify-content-between align-items-center">
+        <Link to="/" className="fs-3 fw-semibold text-decoration-none text-dark">
           Kitap Kurdu
         </Link>
 
-        <nav className="flex gap-4">
-          <NavLink to="/" className="px-4 py-1 rounded-md border border-zinc-300">
+        <nav className="d-flex gap-2">
+          <NavLink to="/" className={({ isActive }) => `btn btn-outline-secondary ${isActive ? "active" : ""}`}>
             Anasayfa
           </NavLink>
-          <NavLink to="/ürünler" className="px-4 py-1 rounded-md border border-zinc-300">
+          <NavLink to="/ürünler" className={({ isActive }) => `btn btn-outline-secondary ${isActive ? "active" : ""}`}>
             Ürünler
           </NavLink>
-          <NavLink to="/kategori/roman" className="px-4 py-1 rounded-md border border-zinc-300">
+          <NavLink
+            to="/kategori/roman"
+            className={({ isActive }) => `btn btn-outline-secondary ${isActive ? "active" : ""}`}
+          >
             Kategori
           </NavLink>
         </nav>

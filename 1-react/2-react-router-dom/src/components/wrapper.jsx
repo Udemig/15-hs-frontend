@@ -4,10 +4,10 @@ import Header from "./header";
 
 const Wrapper = () => {
   return (
-    <div className="h-screen flex flex-col">
+    <div className="min-vh-100 d-flex flex-column">
       <Header />
 
-      <main className="flex-1">
+      <main className="flex-grow-1 py-4">
         <Outlet />
       </main>
 

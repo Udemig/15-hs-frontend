@@ -3,6 +3,7 @@ import { navSections } from "../../utils/constants";
 import { getUserName } from "../../utils/helpers";
 import UserAvatar from "../shared/user-avatar";
 import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const Nav = ({ user }) => {
   return (

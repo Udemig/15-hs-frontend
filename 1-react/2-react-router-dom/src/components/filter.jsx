@@ -22,15 +22,17 @@ const Filter = () => {
   };
 
   return (
-    <div className="border border-zinc-300 shadow-md my-5 rounded-md">
-      <form onSubmit={handleSubmit} className="flex px-4 py-2">
+    <div className="card shadow-sm my-4">
+      <form onSubmit={handleSubmit} className="card-body d-flex gap-2 p-3">
         <input
           type="text"
           placeholder="kitap ara.."
-          className="flex-1 outline-0"
+          className="form-control"
           defaultValue={searchParams.get("arama_terimi")}
         />
-        <button type="submit">Ara</button>
+        <button type="submit" className="btn btn-primary">
+          Ara
+        </button>
       </form>
     </div>
   );

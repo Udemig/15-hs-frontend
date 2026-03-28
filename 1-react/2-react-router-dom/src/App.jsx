@@ -1,8 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Products from "./pages/products";
 import Home from "./pages/home";
-import Header from "./components/header";
-import Footer from "./components/footer";
 import Detail from "./pages/detail";
 import NotFound from "./pages/not-found";
 import Novel from "./pages/novel";

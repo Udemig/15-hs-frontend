@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 
 const Card = ({ book }) => {
   return (
-    <div className="border p-5 rounded">
-      <img src={book.image} alt={book.title} />
+    <div className="card h-100 shadow-sm">
+      <img src={book.image} alt={book.title} className="card-img-top" />
 
-      <div className="mt-3 flex flex-col gap-3">
-        <h3 className="text-2xl font-semibold">{book.title}</h3>
+      <div className="card-body d-flex flex-column gap-2">
+        <h3 className="card-title fs-4 fw-semibold">{book.title}</h3>
 
-        <p className="font-semibold">{book.author}</p>
+        <p className="card-text fw-semibold mb-2">{book.author}</p>
 
         <Link
           to={`/ürünler/${book.id}`}
-          className="bg-black text-white w-full p-3 rounded-md text-center hover:brightness-75"
+          className="btn btn-dark w-100 mt-auto"
         >
           Detay'a Git
         </Link>

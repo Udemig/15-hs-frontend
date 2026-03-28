@@ -15,52 +15,50 @@ const Detail = () => {
 
   // component ekrana basılınca çalışır:
   useEffect(() => {
-    setLoading(true);
-
     api
       .get(`/books/${id}`)
       .then((res) => setBook(res.data))
       .catch(() => navigate("/not-found", { state: "Ürün bulunamadı" }))
       .finally(() => setLoading(false));
-  }, []);
+  }, [id, navigate]);
 
-  if (loading) return <h1 className="text-2xl text-center font-bold my-50">Yükleniyor...</h1>;
+  if (loading) return <h1 className="fs-2 text-center fw-bold my-5">Yükleniyor...</h1>;
 
   return (
     <div className="container">
-      <Link to={-1} className="underline text-blue-500">
+      <Link to={-1} className="link-primary">
         Geri
       </Link>
 
-      <h1 className="text-2xl text-center font-bold my-5">Detay Sayfası</h1>
+      <h1 className="fs-2 text-center fw-bold my-4">Detay Sayfası</h1>
 
-      <div className="flex flex-col items-center text-center gap-5">
-        <img src={book.image} alt={book.title} className="max-h-100 rounded-lg" />
+      <div className="d-flex flex-column align-items-center text-center gap-4">
+        <img src={book.image} alt={book.title} className="img-fluid rounded" style={{ maxHeight: "420px" }} />
 
-        <h1 className="text-4xl font-semibold">{book.title}</h1>
+        <h1 className="display-6 fw-semibold">{book.title}</h1>
 
         <p>{book.description}</p>
 
-        <div className="grid grid-cols-2 gap-5 w-full max-w-150">
-          <p className="flex flex-col p-2 rounded-md bg-zinc-300">
+        <div className="row g-3 w-100" style={{ maxWidth: "760px" }}>
+          <p className="col-12 col-md-6 mb-0 d-flex flex-column p-3 rounded bg-secondary-subtle">
             <span>Yazar</span>
-            <span className="font-semibold">{book.author}</span>
+            <span className="fw-semibold">{book.author}</span>
           </p>
-          <p className="flex flex-col p-2 rounded-md bg-zinc-300">
+          <p className="col-12 col-md-6 mb-0 d-flex flex-column p-3 rounded bg-secondary-subtle">
             <span>Kategori</span>
-            <span className="font-semibold">{book.category}</span>
+            <span className="fw-semibold">{book.category}</span>
           </p>
-          <p className="flex flex-col p-2 rounded-md bg-zinc-300">
+          <p className="col-12 col-md-6 mb-0 d-flex flex-column p-3 rounded bg-secondary-subtle">
             <span>Yıl</span>
-            <span className="font-semibold">{book.year}</span>
+            <span className="fw-semibold">{book.year}</span>
           </p>
-          <p className="flex flex-col p-2 rounded-md bg-zinc-300">
+          <p className="col-12 col-md-6 mb-0 d-flex flex-column p-3 rounded bg-secondary-subtle">
             <span>Sayfa</span>
-            <span className="font-semibold">{book.page}</span>
+            <span className="fw-semibold">{book.page}</span>
           </p>
-          <p className="flex flex-col p-2 rounded-md bg-zinc-300">
+          <p className="col-12 mb-0 d-flex flex-column p-3 rounded bg-secondary-subtle">
             <span>Fiyat</span>
-            <span className="font-semibold">{book.price}₺</span>
+            <span className="fw-semibold">{book.price}₺</span>
           </p>
         </div>
       </div>

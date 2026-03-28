@@ -23,7 +23,7 @@ const Protected = () => {
 
   // kullancı oturumu kapalıysa veya email doğrulanmamışsa logine yöndlendir
   if (user === null || user?.emailVerified === false) {
-    if (user === null || user?.emailVerified === false) toast.info("Lütfen mailinizi doğrulayın");
+    if (user?.emailVerified === false) toast.info("Lütfen mailinizi doğrulayın");
 
     // auth sayfasına yönlendir
     return <Navigate to="/" />;
