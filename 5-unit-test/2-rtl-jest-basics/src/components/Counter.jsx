@@ -12,7 +12,7 @@ const Counter = () => {
       <b>{count}</b>
 
       <button className="btn" onClick={() => setCount(count + 1)}>
-        Arttir
+        Arttır
       </button>
     </div>
   );

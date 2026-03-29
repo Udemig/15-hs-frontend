@@ -1,4 +1,5 @@
 import "./App.css";
+import Accordion from "./components/Accordion";
 import ColorButton from "./components/ColorButton";
 import Counter from "./components/Counter";
 
@@ -17,6 +18,8 @@ function App() {
           <ColorButton />
 
           <Counter />
+
+          <Accordion />
         </section>
 
         <section className="info-section">
