@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Password Reset Modal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <main class="container">
+        <h1>Welcome Back</h1>
+        <p>Having trouble logging in? We've got you covered.</p>
+        <button id="openModalBtn" class="primary-btn">Reset Password</button>
+    </main>
+
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div class="modal" id="resetModal">
+            <div class="modal-header">
+                <h2>Reset Password</h2>
+                <button class="close-icon" id="closeIconBtn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your email address and we'll send you a link to reset your password.</p>
+                <form id="resetForm">
+                    <div class="input-group">
+                        <i class="fa-regular fa-envelope icon"></i>
+                        <input type="email" id="emailInput" placeholder="your@email.com" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cancel-btn" id="cancelBtn">Cancel</button>
+                <button type="submit" form="resetForm" class="submit-btn" id="submitBtn">Send Reset Link</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

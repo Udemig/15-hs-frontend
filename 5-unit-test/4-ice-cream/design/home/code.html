@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Artisanal Scoop | Zanaatkar Dondurma Deneyimi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;0,800;1,800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#6c203f",
+                    "on-background": "#383a15",
+                    "tertiary-fixed": "#fed3c7",
+                    "inverse-primary": "#fe97b9",
+                    "surface-dim": "#e4e7a9",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#383a15",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#51092a",
+                    "primary-fixed": "#ffa8c4",
+                    "secondary-fixed": "#cbfecc",
+                    "error-dim": "#770326",
+                    "background": "#ffffd3",
+                    "surface-container-low": "#fcfbde",
+                    "on-secondary-container": "#38643e",
+                    "secondary-container": "#cbfecc",
+                    "tertiary-container": "#fed3c7",
+                    "inverse-on-surface": "#9f9e8b",
+                    "primary-dim": "#8f3c5b",
+                    "surface-container": "#f6f6d2",
+                    "on-tertiary-container": "#65473e",
+                    "on-secondary-fixed": "#25512d",
+                    "outline-variant": "#bbbc8c",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "error": "#b3374e",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#0e0f04",
+                    "secondary-fixed-dim": "#bdefbe",
+                    "primary-container": "#ffa8c4",
+                    "surface-tint": "#9d4867",
+                    "tertiary-fixed-dim": "#efc6b9",
+                    "primary": "#9d4867",
+                    "error-container": "#f76a80",
+                    "tertiary": "#7d5d53",
+                    "on-secondary-fixed-variant": "#426e47",
+                    "on-error-container": "#68001f",
+                    "on-surface-variant": "#65673e",
+                    "surface-variant": "#eaecb8",
+                    "secondary": "#426e47",
+                    "on-primary-fixed-variant": "#772948",
+                    "surface-container-high": "#f0f1c5",
+                    "on-tertiary-fixed": "#51352c",
+                    "on-tertiary-fixed-variant": "#705147",
+                    "surface-bright": "#ffffd3",
+                    "surface-container-highest": "#eaecb8",
+                    "surface": "#ffffd3",
+                    "tertiary-dim": "#705147"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrolled-nav {
+            box-shadow: 0 10px 30px rgba(56, 58, 21, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#ffffd3]/80 backdrop-blur-xl transition-all duration-300">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<a class="text-2xl font-black italic text-[#7d5d53] font-headline" href="#">The Artisanal Scoop</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-headline font-bold text-[#9d4867] border-b-2 border-[#9d4867] pb-1 text-sm tracking-tight transition-all" href="#">Mağaza</a>
+<a class="font-headline font-medium text-sm tracking-tight text-[#7d5d53] hover:text-[#9d4867] transition-colors" href="#">Hakkımızda</a>
+<a class="font-headline font-medium text-sm tracking-tight text-[#7d5d53] hover:text-[#9d4867] transition-colors" href="#">Blog</a>
+<a class="font-headline font-medium text-sm tracking-tight text-[#7d5d53] hover:text-[#9d4867] transition-colors" href="#">İletişim</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#9d4867] hover:opacity-80 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<button class="relative text-[#9d4867] hover:opacity-80 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute -top-2 -right-2 bg-primary text-on-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full">2</span>
+</button>
+<button class="md:hidden text-[#7d5d53]">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative px-6 py-12 md:py-24 max-w-7xl mx-auto overflow-hidden">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-headline font-bold text-xs uppercase tracking-widest mb-6">
+                        %100 Doğal &amp; Zanaatkar
+                    </span>
+<h1 class="font-headline font-extrabold text-5xl md:text-7xl text-tertiary leading-[1.1] mb-8">
+                        Doğadan Sofranıza, <span class="text-primary italic">Gerçek</span> Dondurma Keyfi
+                    </h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-lg mb-10 leading-relaxed">
+                        Geleneksel yöntemlerle, taze meyveler ve en kaliteli sütlerle hazırlanan zanaatkar dondurmalarımızla tanışın.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline font-bold hover:opacity-90 transition-all shadow-[0_10px_30px_rgba(157,72,103,0.2)] active:scale-95">
+                            Hemen Sipariş Ver
+                        </button>
+<button class="bg-surface-container-highest text-on-secondary-container px-8 py-4 rounded-xl font-headline font-bold hover:bg-opacity-80 transition-all active:scale-95">
+                            Lezzetleri Keşfet
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute inset-0 bg-primary-container/20 blur-3xl rounded-full scale-110 -z-10"></div>
+<img alt="Artisanal ice cream" class="w-full h-auto drop-shadow-[0_20px_50px_rgba(56,58,21,0.15)] transform rotate-3 hover:rotate-0 transition-transform duration-700" data-alt="Close-up of a perfectly formed artisanal strawberry ice cream scoop on a rustic ceramic plate with fresh mint leaves and soft morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWUznYJlmM_NZC2Lhfdu9_fw4kmKWcU11SxE7QTY6XxNaBRTLOCOomv8F-k2sYQNYZSGTiGduqdnTjRUq8-hbzL-yVAumAnAYPMcmNYrP6_op6BuV6EsWTg1M1IBns5kSx0iK6BiV3VfooNnvA_8y34oF3gIGBy_NGkdaBCvCLrSk2nayEpzQ2g-AQO5Ff2NE9rFL1RtdtOQU0TZG482WPbbuALoZgJt18WkjymsDrx7r3fzCjR_76haXb7dW4Mb54MoHGE6u2jfnS"/>
+</div>
+</div>
+</section>
+<!-- Dondurmalarımız Section -->
+<section class="bg-surface-container-low py-24 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<h2 class="font-headline font-extrabold text-4xl text-tertiary mb-4">Dondurmalarımız</h2>
+<p class="text-on-surface-variant max-w-md">Her bir kepçede doğanın en saf lezzetlerini hissedin. Koruyucu madde içermez, sadece gerçek tatlar.</p>
+</div>
+<div class="flex gap-2 p-1 bg-surface-container-highest rounded-full">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-headline font-bold text-sm">Tümü</button>
+<button class="px-6 py-2 rounded-full text-on-surface-variant font-headline font-medium text-sm hover:bg-surface-container-low transition-colors">Klasik</button>
+<button class="px-6 py-2 rounded-full text-on-surface-variant font-headline font-medium text-sm hover:bg-surface-container-low transition-colors">Meyveli</button>
+<button class="px-6 py-2 rounded-full text-on-surface-variant font-headline font-medium text-sm hover:bg-surface-container-low transition-colors">Vegan</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product Card 1: Fıstıklı -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 shadow-[0_10px_30px_rgba(56,58,21,0.03)] hover:shadow-[0_20px_40px_rgba(56,58,21,0.08)] transition-all flex flex-col">
+<div class="relative mb-6 overflow-hidden rounded-lg aspect-square">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Vibrant green premium pistachio ice cream with whole roasted pistachios sprinkled on top, macro shot, creamy texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDepVderKZ8YspAJRiLF804Urx77mX_qY8mQCYtoDNDjHHmdVAjnVTdXIHc1wDQReQP6upR-1yMPXgCZnIsjmP50xetzPr_3jgbr8mukAvM9OgbWWXcIsKYHdGlc5wiP4TdqwtpD_fRFAwm98iMX82gzVgqlrC9vvtcMPqk91ANkKooBRbuSpvTvAorJik0RT9SOV7T_GVLBeSYHQtc3ZmhOrFJEiPNHN5dryxgy7ckoOKAKyVD6wBxeVlXIawHZbJikMLmKpSZCNEc"/>
+<div class="absolute top-3 right-3">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">En Çok Satan</span>
+</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline font-bold text-xl text-tertiary mb-2">Antep Fıstıklı</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed line-clamp-2">Gaziantep'in en seçkin fıstıklarıyla hazırlanan, yoğun aromalı efsanevi lezzet.</p>
+<div class="flex items-center justify-between mb-6">
+<span class="text-primary font-headline font-extrabold text-2xl">80 TL</span>
+<div class="flex gap-1 p-1 bg-surface-container rounded-full">
+<button class="px-3 py-1 text-[10px] font-bold rounded-full bg-tertiary-container text-on-tertiary-container">Külah</button>
+<button class="px-3 py-1 text-[10px] font-bold rounded-full text-on-surface-variant hover:bg-surface-container-highest">Kap</button>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-highest text-on-secondary-container rounded-xl font-headline font-bold flex items-center justify-center gap-2 hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="add_shopping_cart">add_shopping_cart</span>
+                            Sepete Ekle
+                        </button>
+</div>
+<!-- Product Card 2: Çilekli -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 shadow-[0_10px_30px_rgba(56,58,21,0.03)] hover:shadow-[0_20px_40px_rgba(56,58,21,0.08)] transition-all flex flex-col">
+<div class="relative mb-6 overflow-hidden rounded-lg aspect-square">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Fresh pink strawberry ice cream with real strawberry chunks, artistic soft lighting, creamy and smooth appearance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjkdEbKlHs-e49gkl6PnksIUX0x_teCHbGe2nSSdDO3CHaXb5zqNpJXu7zvpUao6GJ3nNrWOnaivoLtgAsKHokn6iayLUMWsQ6hmNEsugkzCL8HDMhbROHCU-6v_tw-yPTMMfHvnZNiLvW6kZBPVERAtllbpL_rJp80NevqhTRXEB1pi2K0cnxF9W6_mNsYH00ad26T-3xM1OxrEimRU9aj1hjSz9jHnmmZck-6L_8cawkyJnrV6q3h3kVeztQ99t4YVJZiQ6S4Zwd"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline font-bold text-xl text-tertiary mb-2">Gerçek Çilekli</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed line-clamp-2">Mevsiminde toplanan taze çileklerle hazırlanan ferahlatıcı yaz rüyası.</p>
+<div class="flex items-center justify-between mb-6">
+<span class="text-primary font-headline font-extrabold text-2xl">75 TL</span>
+<div class="flex gap-1 p-1 bg-surface-container rounded-full">
+<button class="px-3 py-1 text-[10px] font-bold rounded-full text-on-surface-variant hover:bg-surface-container-highest">Külah</button>
+<button class="px-3 py-1 text-[10px] font-bold rounded-full bg-tertiary-container text-on-tertiary-container">Kap</button>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-highest text-on-secondary-container rounded-xl font-headline font-bold flex items-center justify-center gap-2 hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="add_shopping_cart">add_shopping_cart</span>
+                            Sepete Ekle
+                        </button>
+</div>
+<!-- Product Card 3: Çikolatalı -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 shadow-[0_10px_30px_rgba(56,58,21,0.03)] hover:shadow-[0_20px_40px_rgba(56,58,21,0.08)] transition-all flex flex-col">
+<div class="relative mb-6 overflow-hidden rounded-lg aspect-square">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Rich dark Belgian chocolate ice cream with chocolate shavings, elegant studio photography, deep brown tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9sfAa8JvWHTkJJPMrInp0s_l1NaYZRAMTXV-1FeMBQPh2L9xLPc20Wlp6diIV5EYjlqXecx5yc5nm5pKqiyUn85b1nxi40KUZd5cBOR676pRIgD_xm_OsO8kYYyjbbVplKF_bQ0CzdCgRAeBSdcRszt1621YbGyuEFcbuk8ITTvj1r1fTTG6-jsgCMf2RB9vkhO-jOec3rGnZxLXnInjWqQoksj2-zlVy2j-lLhP2kvfg_nCmre0l_OFw7Uj0zdKvfDks5uTTMBtA"/>
+<div class="absolute top-3 left-3">
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Premium</span>
+</div>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline font-bold text-xl text-tertiary mb-2">Belçika Çikolatalı</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed line-clamp-2">En az %70 kakao içeren Belçika çikolatasıyla hazırlanan yoğun bir deneyim.</p>
+<div class="flex items-center justify-between mb-6">
+<span class="text-primary font-headline font-extrabold text-2xl">85 TL</span>
+<div class="flex gap-1 p-1 bg-surface-container rounded-full">
+<button class="px-3 py-1 text-[10px] font-bold rounded-full bg-tertiary-container text-on-tertiary-container">Külah</button>
+<button class="px-3 py-1 text-[10px] font-bold rounded-full text-on-surface-variant hover:bg-surface-container-highest">Kap</button>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-highest text-on-secondary-container rounded-xl font-headline font-bold flex items-center justify-center gap-2 hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="add_shopping_cart">add_shopping_cart</span>
+                            Sepete Ekle
+                        </button>
+</div>
+<!-- Product Card 4: Vanilyalı -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 shadow-[0_10px_30px_rgba(56,58,21,0.03)] hover:shadow-[0_20px_40px_rgba(56,58,21,0.08)] transition-all flex flex-col">
+<div class="relative mb-6 overflow-hidden rounded-lg aspect-square">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Classic Madagascar vanilla bean ice cream with tiny black specks, ivory color, creamy and inviting texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2-1twPZil6QcYaSE7SNMfWN_O-m3Uw71X9a4cb5zsoohgGi6kSDBfYWpkOtrPX209-MmrfJoVwrOBAWLvwOymWiuCvYM_lPw7AnfTQ8Jbj1wzRv6JopKbwivpvruuP6cnoOA63OGsXllQmQa6WmEVsbu9kbx6PMxQ8-v5-dMMLrVnDIT3eV0Hj6t5z9Mt3xM2nsz3-sUbkXXi5iDvJQcCMLVnZc1B178drA2W1izZ3vJ91cGVUXKrWF-6h322WQe-p30L8pQLAZ0m"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline font-bold text-xl text-tertiary mb-2">Madagaskar Vanilyalı</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed line-clamp-2">Gerçek vanilya çubuklarından gelen doğal siyah tanecikli saf klasisizm.</p>
+<div class="flex items-center justify-between mb-6">
+<span class="text-primary font-headline font-extrabold text-2xl">70 TL</span>
+<div class="flex gap-1 p-1 bg-surface-container rounded-full">
+<button class="px-3 py-1 text-[10px] font-bold rounded-full text-on-surface-variant hover:bg-surface-container-highest">Külah</button>
+<button class="px-3 py-1 text-[10px] font-bold rounded-full bg-tertiary-container text-on-tertiary-container">Kap</button>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-highest text-on-secondary-container rounded-xl font-headline font-bold flex items-center justify-center gap-2 hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="add_shopping_cart">add_shopping_cart</span>
+                            Sepete Ekle
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Artisanal Features Bento Grid -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-secondary-container rounded-xl p-10 flex flex-col md:flex-row items-center gap-8 overflow-hidden relative">
+<div class="z-10">
+<h3 class="font-headline font-extrabold text-3xl text-on-secondary-container mb-4">Gerçek Çiftlik Sütü</h3>
+<p class="text-on-secondary-container/80 max-w-md mb-6">Her sabah yerel çiftliklerden gelen taze sütleri pastörize ediyor, dondurmalarımıza o eşsiz kremsi dokuyu kazandırıyoruz.</p>
+<a class="inline-flex items-center gap-2 font-headline font-bold text-on-secondary-container hover:underline underline-offset-4" href="#">Hikayemizi İzle <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<img alt="Fresh milk splash" class="w-64 h-auto drop-shadow-lg" data-alt="Artistic splash of fresh white milk against a soft pastel green background, high speed photography, clean and pure look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ1Xeyf_PkAzDsQkoOTgFU7sAPbiL4c7JvYEIReXT9k_jUNiRQzGrA5ORfumBn0it7GSsyIjyAWAb1JCI_5WUlMoYNJfqPqq8HUvbVWB64C9WkhxOwslZrv63z0tOUP5F4ASfvKp7fGZWaIHIFrrtzhr0ky6ojBHZvm4Wr54PrGZGBZAtxz_m74JxSUjCUONyVFsoVENxvf2XDlmb-ph1bPk1VCHqB4D0tidqotSQkCMtptZ8mtHsajpLFRYU2lrDJc5EK-8fOcu9E"/>
+</div>
+<div class="bg-tertiary-container rounded-xl p-10 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-on-tertiary-container text-4xl mb-6" data-icon="eco">eco</span>
+<h3 class="font-headline font-extrabold text-2xl text-on-tertiary-container mb-4">Sürdürülebilir Ambalaj</h3>
+<p class="text-on-tertiary-container/80 text-sm">Doğayı seviyoruz. Kaplarımız ve kaşıklarımız %100 geri dönüştürülebilir malzemelerden üretilmiştir.</p>
+</div>
+</div>
+<div class="bg-primary-container rounded-xl p-10 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-on-primary-container text-4xl mb-6" data-icon="local_shipping">local_shipping</span>
+<h3 class="font-headline font-extrabold text-2xl text-on-primary-container mb-4">Soğuk Zincir Teslimat</h3>
+<p class="text-on-primary-container/80 text-sm">Özel soğutmalı araçlarımızla dondurmanızı erimeden, ilk anki tazeliğinde kapınıza getiriyoruz.</p>
+</div>
+</div>
+<div class="md:col-span-2 bg-surface-container-highest rounded-xl p-10 flex flex-col md:flex-row-reverse items-center gap-8 overflow-hidden">
+<div class="z-10">
+<h3 class="font-headline font-extrabold text-3xl text-tertiary mb-4">Butik Üretim</h3>
+<p class="text-on-surface-variant max-w-md mb-6">Endüstriyel makineler yerine butik üretim tezgahlarımızda, her dondurmayı özenle ve tek tek hazırlıyoruz.</p>
+<div class="flex gap-4">
+<div class="text-center">
+<span class="block font-headline font-extrabold text-2xl text-primary">24+</span>
+<span class="text-xs uppercase font-bold text-on-surface-variant">Çeşit</span>
+</div>
+<div class="w-px h-10 bg-outline-variant/30"></div>
+<div class="text-center">
+<span class="block font-headline font-extrabold text-2xl text-primary">15</span>
+<span class="text-xs uppercase font-bold text-on-surface-variant">Yıllık Deneyim</span>
+</div>
+</div>
+</div>
+<img alt="Artisan at work" class="w-64 h-auto rounded-lg shadow-xl" data-alt="Close-up of an artisan hand carefully scooping fresh ice cream from a traditional metal container, professional chef clothing, warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMU673vlFPZjpBmHJEOk-QcM_8oJBZqS95P-3evKGhpd88S_IIDNXjO_PgWQUxnHyutmGQgHraWMGRJB-HYWfbrUY2G8DkClQcXZb11AXG7o96b5aMc199G81vblbFLkQsSCZqCAUgUTlpEwUDTdmKMZ_HbebbetCfyg7NW8hLJM25n6OK_Cf7xSe8y2MywH1j_V39hlj8w2oc-zhfn4LR6Y9dWw1KHuJT1Os8NRGvQlzedqaAkmz78hZYU6e4nEoxPwPMFlz2e0Dg"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#bbbc8c]/15 bg-[#ffffd3] dark:bg-stone-950 mt-24">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-6 max-w-7xl mx-auto">
+<div class="flex flex-col gap-4 items-center md:items-start">
+<span class="font-['Plus_Jakarta_Sans'] font-bold text-[#7d5d53] text-xl">The Artisanal Scoop</span>
+<p class="font-['Be_Vietnam_Pro'] text-xs uppercase tracking-widest text-[#426e47] dark:text-[#a5d6a7]">© 2024 The Artisanal Scoop. Taze ve Zanaatkar.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-['Be_Vietnam_Pro'] text-xs uppercase tracking-widest text-[#65673e] hover:text-[#9d4867] transition-colors underline-offset-4 hover:underline" href="#">Kullanım Koşulları</a>
+<a class="font-['Be_Vietnam_Pro'] text-xs uppercase tracking-widest text-[#65673e] hover:text-[#9d4867] transition-colors underline-offset-4 hover:underline" href="#">Gizlilik Politikası</a>
+<a class="font-['Be_Vietnam_Pro'] text-xs uppercase tracking-widest text-[#65673e] hover:text-[#9d4867] transition-colors underline-offset-4 hover:underline" href="#">Mesafeli Satış Sözleşmesi</a>
+</div>
+<div class="flex gap-4">
+<a class="text-[#7d5d53] hover:text-[#9d4867] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="facebook">social_leaderboard</span>
+</a>
+<a class="text-[#7d5d53] hover:text-[#9d4867] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="instagram">retweet</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
