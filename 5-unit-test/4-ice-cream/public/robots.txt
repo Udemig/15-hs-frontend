@@ -1,0 +1,22 @@
+# The Artisanal Scoop - Robots.txt
+# Allow all search engines to crawl the website
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /node_modules/
+Disallow: /*.json$
+
+# Specific rules for different crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://theartisanalscoop.com/sitemap.xml
+Sitemap: https://theartisanalscoop.com/sitemap-products.xml

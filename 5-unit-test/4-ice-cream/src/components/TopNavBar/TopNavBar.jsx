@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { NAV_LINKS } from "../../data/navigation";
 
-const TopNavBar = ({ cartItemCount = 2 }) => {
+const TopNavBar = ({ cartItemCount = 0, onCartClick }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl transition-all duration-300">
       <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-        <a
-          className="text-2xl font-black italic text-tertiary font-headline"
-          href="#"
-        >
+        <a className="text-2xl font-black italic text-tertiary font-headline" href="#">
           The Artisanal Scoop
         </a>
 
@@ -31,10 +28,7 @@ const TopNavBar = ({ cartItemCount = 2 }) => {
         </div>
 
         <div className="flex items-center gap-4">
-          <button
-            className="text-primary hover:opacity-80 transition-all active:scale-95"
-            aria-label="Dil değiştir"
-          >
+          <button className="text-primary hover:opacity-80 transition-all active:scale-95" aria-label="Dil değiştir">
             <span className="material-symbols-outlined" data-icon="language">
               language
             </span>
@@ -43,11 +37,9 @@ const TopNavBar = ({ cartItemCount = 2 }) => {
           <button
             className="relative text-primary hover:opacity-80 transition-all active:scale-95"
             aria-label="Sepet"
+            onClick={onCartClick}
           >
-            <span
-              className="material-symbols-outlined"
-              data-icon="shopping_cart"
-            >
+            <span className="material-symbols-outlined" data-icon="shopping_cart">
               shopping_cart
             </span>
             {cartItemCount > 0 && (

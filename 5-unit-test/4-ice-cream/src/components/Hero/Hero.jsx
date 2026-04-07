@@ -26,7 +26,8 @@ const Hero = () => {
         <div className="relative">
           <div className="absolute inset-0 bg-primary-container/20 blur-3xl rounded-full scale-110 -z-10"></div>
           <img
-            alt="Artisanal ice cream"
+            alt="The Artisanal Scoop - Doğal malzemelerle hazırlanan zanaatkar dondurma"
+            loading="lazy"
             className="w-full h-auto drop-shadow-[0_20px_50px_rgba(56,58,21,0.15)] transform rotate-3 hover:rotate-0 transition-transform duration-700"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWUznYJlmM_NZC2Lhfdu9_fw4kmKWcU11SxE7QTY6XxNaBRTLOCOomv8F-k2sYQNYZSGTiGduqdnTjRUq8-hbzL-yVAumAnAYPMcmNYrP6_op6BuV6EsWTg1M1IBns5kSx0iK6BiV3VfooNnvA_8y34oF3gIGBy_NGkdaBCvCLrSk2nayEpzQ2g-AQO5Ff2NE9rFL1RtdtOQU0TZG482WPbbuALoZgJt18WkjymsDrx7r3fzCjR_76haXb7dW4Mb54MoHGE6u2jfnS"
           />

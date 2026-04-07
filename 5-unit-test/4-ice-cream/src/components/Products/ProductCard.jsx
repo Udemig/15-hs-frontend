@@ -1,16 +1,10 @@
 import { useState } from "react";
 
-const ProductCard = ({ id, name, description, price, image, badge, badgeType, onAddToCart }) => {
+const ProductCard = ({ id, name, description, price, image, onAddToCart }) => {
   const [selectedSize, setSelectedSize] = useState("Külah");
 
-  const badgePositionClass = badgeType === "secondary" ? "top-3 right-3" : "top-3 left-3";
-  const badgeBgClass =
-    badgeType === "secondary"
-      ? "bg-secondary-container text-on-secondary-container"
-      : "bg-primary-container text-on-primary-container";
-
   const handleAddToCart = () => {
-    onAddToCart?.({ id, name, price, size: selectedSize });
+    onAddToCart?.({ id, name, price, image, type: selectedSize });
   };
 
   return (
@@ -18,16 +12,10 @@ const ProductCard = ({ id, name, description, price, image, badge, badgeType, on
       <div className="relative mb-6 overflow-hidden rounded-lg aspect-square">
         <img
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          alt={name}
+          alt={`${name} - Zanaatkar Dondurma | The Artisanal Scoop`}
+          loading="lazy"
           src={image}
         />
-        {badge && (
-          <div className={`absolute ${badgePositionClass}`}>
-            <span className={`${badgeBgClass} text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full`}>
-              {badge}
-            </span>
-          </div>
-        )}
       </div>
 
       <div className="grow">
