@@ -22,8 +22,6 @@ const Comments = ({ videoId }) => {
       .finally(() => setLoading(false));
   }, [videoId]);
 
-  console.log(comments);
-
   if (loading) return <Spinner />;
 
   if (error) return <Error message={error} />;

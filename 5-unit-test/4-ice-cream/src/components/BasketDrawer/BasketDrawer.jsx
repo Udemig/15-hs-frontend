@@ -23,11 +23,13 @@ const BasketDrawer = ({ isOpen, onClose }) => {
   return (
     <>
       {/* Backdrop */}
-      {isOpen && <div className="fixed inset-0 bg-black/40 z-[55] transition-opacity" onClick={onClose} />}
+      {isOpen && (
+        <div aria-label="backdrop" className="fixed inset-0 bg-black/40 z-55 transition-opacity" onClick={onClose} />
+      )}
 
       {/* Drawer Panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-surface-container-lowest z-[60] flex flex-col shadow-2xl transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-80 bg-surface-container-lowest z-60 flex flex-col shadow-2xl transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
