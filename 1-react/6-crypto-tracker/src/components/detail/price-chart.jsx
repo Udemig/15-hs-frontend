@@ -17,26 +17,6 @@ const PriceChart = ({ symbol, priceHistory, days }) => {
   const textColor = isDarkTheme ? "#e5e7eb" : "#374151";
   const gridColor = isDarkTheme ? "#374151" : "#e5e7eb";
 
-  // grafik verisi
-  const data = {
-    labels: priceHistory.map((item) => formatDate(item[0], days)),
-    datasets: [
-      {
-        fill: true,
-        label: `${symbol} Fiyat`,
-        data: priceHistory.map((item) => item[1]),
-        borderColor: borderColor,
-        backgroundColor: backgroundColor,
-        borderWidth: 2,
-        tension: 0.4,
-        pointRadius: 0,
-        pointHoverRadius: 6,
-        pointHoverBorderColor: "#ffffff",
-        pointHoverBackgroundColor: borderColor,
-      },
-    ],
-  };
-
   // grafik ayarları
   const options = {
     responsive: true,
@@ -110,6 +90,26 @@ const PriceChart = ({ symbol, priceHistory, days }) => {
         hoverRadius: 8,
       },
     },
+  };
+
+  // grafik verisi
+  const data = {
+    labels: priceHistory.map((item) => formatDate(item[0], days)),
+    datasets: [
+      {
+        fill: true,
+        label: `${symbol} Fiyat`,
+        data: priceHistory.map((item) => item[1]),
+        borderColor: borderColor,
+        backgroundColor: backgroundColor,
+        borderWidth: 2,
+        tension: 0.4,
+        pointRadius: 0,
+        pointHoverRadius: 6,
+        pointHoverBorderColor: "#ffffff",
+        pointHoverBackgroundColor: borderColor,
+      },
+    ],
   };
 
   return (
