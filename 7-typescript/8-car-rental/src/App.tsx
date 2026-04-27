@@ -2,8 +2,9 @@ import { BrowserRouter } from "react-router-dom";
 import Header from "./components/header";
 import Home from "./pages/home";
 import Footer from "./components/footer";
+import type { FC } from "react";
 
-const App = () => {
+const App: FC = () => {
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col relative overflow-hidden">

@@ -20,9 +20,9 @@ const Hero: FC = () => {
   return (
     <div className="hero padding-x padding-y">
       <div className="pt-20 xl:flex-1 max-h-230">
-        <p className="mb-4 text-xl flex items-center gap-2">
+        <div className="mb-4 text-xl flex items-center gap-2">
           <motion.pre style={style}>{rounded}</motion.pre> <span className="mb-1">+ Araba</span>
-        </p>
+        </div>
 
         <h1 className="hero-title">Özgürlüğü Hisset, Yolculuğa Başla</h1>
 

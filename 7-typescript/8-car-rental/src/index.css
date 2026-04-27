@@ -63,7 +63,7 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-blue to-accent bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-primary-blue to-accent bg-clip-text text-transparent pb-2;
   }
 
   .hover-lift {
