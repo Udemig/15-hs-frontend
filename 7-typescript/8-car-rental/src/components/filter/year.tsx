@@ -40,7 +40,7 @@ const Year: FC = () => {
           onChange={(e) => setYear(e.target.value)}
         />
 
-        <button className="input-bg rounded-r-2xl cursor-pointer">
+        <button aria-label="ara" className="input-bg rounded-r-2xl cursor-pointer">
           <img src="/search.svg" className="size-5" alt="ara" />
         </button>
       </div>

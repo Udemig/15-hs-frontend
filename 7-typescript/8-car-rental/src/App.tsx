@@ -1,8 +1,9 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/header";
 import Home from "./pages/home";
 import Footer from "./components/footer";
 import type { FC } from "react";
+import NotFound from "./pages/not-found";
 
 const App: FC = () => {
   return (
@@ -21,7 +22,10 @@ const App: FC = () => {
         <Header />
 
         <main className="relative z-10 flex-1">
-          <Home />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </main>
 
         <Footer />

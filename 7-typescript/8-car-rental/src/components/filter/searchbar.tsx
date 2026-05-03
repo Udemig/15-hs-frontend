@@ -59,7 +59,7 @@ const Searchbar: FC = () => {
           />
         </div>
 
-        <button type="submit" className="mb-1 search-btn sm:hidden">
+        <button aria-label="ara" type="submit" className="mb-1 search-btn sm:hidden">
           <img src="/search.svg" alt="ara" className="size-6" />
         </button>
       </div>
@@ -88,7 +88,7 @@ const Searchbar: FC = () => {
             />
           </div>
 
-          <button type="submit" className="mb-1 search-btn">
+          <button aria-label="ara" type="submit" className="mb-1 search-btn">
             <img src="/search.svg" alt="ara" className="size-6" />
           </button>
         </div>

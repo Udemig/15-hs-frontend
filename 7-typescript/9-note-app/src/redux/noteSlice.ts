@@ -19,9 +19,25 @@ const noteSlice = createSlice({
       // notu diziye ekle
       state.notes.push(newNote);
     },
+
+    deleteNote: (state, action: PayloadAction<string>) => {
+      // kaldırılcak elemanın sırasını bul
+      const index = state.notes.findIndex((note) => note.id === action.payload);
+
+      // diziden elemanı kaldır
+      state.notes.splice(index, 1);
+    },
+
+    updateNote: (state, action: PayloadAction<{ id: string; values: NoteValues }>) => {
+      // düzenlenicek elemanın sırasını bul
+      const index = state.notes.findIndex((n) => n.id === action.payload.id);
+
+      // dizideki sırası bilenen elemanı güncelle
+      state.notes[index] = { id: action.payload.id, ...action.payload.values };
+    },
   },
 });
 
-export const { addNote } = noteSlice.actions;
+export const { addNote, deleteNote, updateNote } = noteSlice.actions;
 
 export default noteSlice.reducer;

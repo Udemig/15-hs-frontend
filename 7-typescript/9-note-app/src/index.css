@@ -85,6 +85,10 @@
     transition: theme(--transition-normal);
     min-height: 100vh;
   }
+
+  button {
+    @apply cursor-pointer;
+  }
 }
 
 /* Animasyonlar */
@@ -114,6 +118,10 @@
 .prose {
   color: theme(--color-text-primary);
   overflow: hidden;
+}
+
+.prose img {
+  border-radius: 10px;
 }
 
 .prose h1,

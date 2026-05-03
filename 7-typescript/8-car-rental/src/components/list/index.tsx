@@ -72,6 +72,17 @@ const List: FC = () => {
           containerRef.current?.scrollIntoView();
         }}
         className="pagination"
+        itemRender={(current, type, element) => {
+          let label: React.ReactNode = current;
+          if (type === "page") label = current;
+          else return element;
+
+          return (
+            <button type="button" aria-label={type === "page" ? `Sayfa ${current}` : `${type} sayfa`}>
+              {label}
+            </button>
+          );
+        }}
       />
     </div>
   );

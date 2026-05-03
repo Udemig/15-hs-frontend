@@ -1,22 +1,44 @@
-import { useState, type FC, type SubmitEvent } from "react";
+import { useEffect, useState, type FC, type SubmitEvent } from "react";
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 import { mdeOptions, selectStyles } from "../../utils/constants";
 import ReactSelect from "react-select/creatable";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Check, X } from "lucide-react";
 import type { NoteValues } from "../../types";
-import { useAppDispatch } from "../../redux";
-import { addNote } from "../../redux/noteSlice";
+import { useAppDispatch, useAppSelector } from "../../redux";
+import { addNote, updateNote } from "../../redux/noteSlice";
 import { toast } from "react-toastify";
 
 const Form: FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { id } = useParams();
 
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  // note verileirni store'dan al
+  const { notes } = useAppSelector((store) => store.noteReducer);
+
+  // note etiketlerini benzersiz bir dizi formatına çevir
+  const uniqueTags = [...new Set(notes.map((note) => note.tags).flat())];
+
+  // düzenleme modundaysa notun bilgilerini state'e aktar
+  useEffect(() => {
+    if (id) {
+      const found = notes.find((note) => note.id === id);
+      if (!found) return;
+      setTitle(found.title);
+      setContent(found.content);
+      setSelectedTags(found.tags);
+    } else {
+      setTitle("");
+      setContent("");
+      setSelectedTags([]);
+    }
+  }, [id, notes]);
 
   // form gönderilince çalışır:
   const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
@@ -30,16 +52,22 @@ const Form: FC = () => {
     };
 
     // reducer'a haber ver
-    dispatch(addNote(values));
-    toast.success("Not oluşturuldu");
-    navigate("/");
+    if (id) {
+      dispatch(updateNote({ id, values }));
+      toast.success("Not güncellendi");
+      navigate(`/note/${id}`);
+    } else {
+      dispatch(addNote(values));
+      toast.success("Not oluşturuldu");
+      navigate("/");
+    }
   };
 
   return (
     <div>
       {/* Sayfa Başlığı */}
       <div>
-        <h1 className="text-2xl font-bold text-text-primary">Yeni Not Oluştur</h1>
+        <h1 className="text-2xl font-bold text-text-primary">{id ? "Notu Düzenle" : "Yeni Not Oluştur"}</h1>
         <p className="text-text-secondary">Fikirlerinizi ve notlarınızı kaydedin</p>
       </div>
 
@@ -89,6 +117,7 @@ const Form: FC = () => {
             isMulti
             onChange={(tags) => setSelectedTags(tags.map((t) => t.value))}
             value={selectedTags.map((t) => ({ value: t, label: t }))}
+            options={uniqueTags.map((t) => ({ value: t, label: t }))}
             required
           />
         </div>

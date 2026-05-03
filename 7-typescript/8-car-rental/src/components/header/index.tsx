@@ -9,7 +9,7 @@ const Header: FC = () => {
         <Link to="/" className="flex items-center gap-3">
           <img src="/logo.png" alt="siyah ve beyaz bmw logosu" width={50} height={50} />
 
-          <h1 className="text-2xl md:text-3xl font-bold text-transparent text-gradient">CarHub</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-transparent text-gradient">CarHuB</h1>
         </Link>
 
         <Button text="Kaydol" />

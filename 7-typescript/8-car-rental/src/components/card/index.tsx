@@ -29,7 +29,7 @@ const Card: FC<Props> = ({ car }) => {
         </div>
 
         {/* Resim */}
-        <img src={getImage(car, true)} className="size-full object-contain min-h-50" />
+        <img src={getImage(car, true)} alt={car.model} className="size-full object-contain min-h-50" />
 
         {/* Detaylar */}
         <div className="w-full">
