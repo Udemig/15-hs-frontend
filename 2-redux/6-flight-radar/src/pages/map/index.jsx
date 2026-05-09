@@ -9,19 +9,23 @@ import { getFlights } from "../../redux/actions";
 
 const Map = () => {
   const dispatch = useDispatch();
-  const { flights } = useSelector((store) => store.flightReducer);
+  const { flights, searchTerm } = useSelector((store) => store.flightReducer);
   const { isLoading, info, route, flightId } = useSelector((store) => store.detailReducer);
 
-  useEffect(() => {
-    // 10 saniyede bir tekrar api'dan güncel verileri al
-    const id = setInterval(() => dispatch(getFlights()), 10000);
+  const filteredFlights = searchTerm
+    ? flights.filter((f) => f.callsign?.toLowerCase().includes(searchTerm.toLowerCase().trim()))
+    : flights;
 
-    // component ekrandan ayrılınca intervalı durdur
-    // componenWillUnmount
-    return () => {
-      clearInterval(id);
-    };
-  }, []);
+  // useEffect(() => {
+  //   // 10 saniyede bir tekrar api'dan güncel verileri al
+  //   const id = setInterval(() => dispatch(getFlights()), 10000);
+
+  //   // component ekrandan ayrılınca intervalı durdur
+  //   // componenWillUnmount
+  //   return () => {
+  //     clearInterval(id);
+  //   };
+  // }, []);
 
   return (
     <MapContainer className="h-[calc(100vh-63px)]" center={[38.948299, 35.424398]} zoom={6} scrollWheelZoom={true}>
@@ -30,7 +34,7 @@ const Map = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {flights.map((flight) => (
+      {filteredFlights.map((flight) => (
         <Marker key={flight.flightid} position={[flight.lat, flight.lon]} icon={getIcon(flight, flightId)}>
           <Popup>
             <div className="flex flex-col gap-2">

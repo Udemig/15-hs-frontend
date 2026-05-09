@@ -5,12 +5,17 @@ const initialState = {
   isLoading: true,
   error: null,
   flights: [],
+  searchTerm: "",
 };
 
 const flightSlice = createSlice({
   name: "flight",
   initialState,
-  reducers: {},
+  reducers: {
+    setSearchTerm: (state, { payload }) => {
+      state.searchTerm = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getFlights.pending, (state) => {
       state.isLoading = true;
@@ -27,4 +32,5 @@ const flightSlice = createSlice({
   },
 });
 
+export const { setSearchTerm } = flightSlice.actions;
 export default flightSlice.reducer;

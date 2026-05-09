@@ -50,4 +50,16 @@
     background-repeat: no-repeat;
     overflow: hidden;
   }
+
+  .card-hover {
+    @apply transition duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1;
+  }
+
+  .field {
+    @apply flex flex-col gap-2;
+  }
+
+  .input {
+    @apply border-2 border-zinc-200 py-2.5 px-4 rounded-lg shadow-sm transition-all duration-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 focus:outline-none hover:border-zinc-100;
+  }
 }

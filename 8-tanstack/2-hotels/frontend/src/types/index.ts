@@ -16,3 +16,25 @@ export interface PlacesResponse {
   results: number;
   places: Place[];
 }
+
+export interface PlaceResponse {
+  message: string;
+  place: Place;
+}
+
+export interface FilterParams {
+  location?: string;
+  order?: string;
+  title?: string;
+}
+
+export interface PlaceFormValues {
+  name: string;
+  location: string;
+  address: string;
+  description: string;
+  amenities: string;
+  rating: number;
+  price_per_night: number;
+  availability: boolean;
+}

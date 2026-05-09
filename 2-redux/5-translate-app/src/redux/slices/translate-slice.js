@@ -18,6 +18,7 @@ const translateSlice = createSlice({
     setSourceLang: (state, { payload }) => {
       state.sourceLang = payload;
     },
+    
     setTargetLang: (state, { payload }) => {
       state.targetLang = payload;
     },

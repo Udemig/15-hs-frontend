@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/header";
 import Map from "./pages/map";
-import List from "./pages/list";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getFlights } from "./redux/actions";
@@ -21,7 +20,6 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Map />} />
-          <Route path="/list" element={<List />} />
         </Routes>
       </main>
 
