@@ -37,7 +37,18 @@ export interface Product {
   discount: number;
   size: string;
   color: string;
-  gender: "men" | "women";
+  gender: "men" | "women" | "unisex";
   price: number;
   updatedAt: string;
+}
+
+export interface ProductValues {
+  name: string;
+  price: number;
+  discount: number;
+  color: string;
+  size: string;
+  description: string;
+  isNew: boolean;
+  gender: "men" | "women" | "unisex";
 }

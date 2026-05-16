@@ -1,14 +1,14 @@
 # Yazılım Mimarisi
 
 - Bir yazılımın iskelet planıdır.
-- Bir binanın mimarı planı, nasıl odaları, kolonları, elektrik-su tesisatını belitliyorsa, yazılım mimariside yazılımın:
+- Bir binanın mimari planı, nasıl odaları, kolonları, elektrik-su tesisatını belirliyorsa, yazılım mimarisi de yazılımın:
 
 * Hangi parçalardan oluşacağını
-* Bu patrçların nasıl iletişim kuracağını
-* Hangi tekenolojilerin kullanılacağını
-* Performansın ve ölçeklenebilrliğin nasıl sağlacağını
+* Bu parçaların nasıl iletişim kuracağını
+* Hangi teknolojilerin kullanılacağını
+* Performansın ve ölçeklenebilirliğin nasıl sağlanacağını
 * Güvenliğin nasıl işleyeceğini
-  belirleyen en üst seviye tasarımdır
+  belirleyen en üst seviye tasarımdır.
 
 # Neden Gerekli?
 
@@ -24,59 +24,62 @@
 3. Katmanlı Mimari (Layered Architecture)
 4. Olay Tabanlı Mimari (Event-Driven Architecture)
 
-- Bunlar morden dünyada en çok kullanılan yapılardır.
+- Bunlar modern dünyada en çok kullanılan yapılardır.
 
 ## Monolit Mimari
 
-- Tüm uygulama tek bir bütün olarak çalışır
-- Backend, frontend, ürün işlemleri kullanıcı işlemleri... hepsi aynı kod tabanında.
-- Örn: Bütün amazon websitesinin tek bir react projesinde yazılması.
+- Tüm uygulama tek bir bütün olarak çalışır.
+- Backend, frontend, veritabanı erişimi, iş mantığı... hepsi aynı kod tabanında bulunur ve tek bir uygulama olarak deploy edilir.
+- Örn: Amazon'un tüm backend (kullanıcı, sipariş, ödeme, ürün yönetimi) ve frontend kodlarının tek bir projede yazılıp tek bir sunucuya deploy edilmesi.
 
 ## Microservices Mimari
 
-- Uygulama birçok küçük, bağımsız servislerden oluşur.
-- Her servis kendi veritabanına ve kendi kod tabanına sahiptir
-- Örn: Amazon websistesinin (Kullancıların görüceği kısım, Adminlerin görüceği kısım, Satılcarın görüceği kısım) birer ayrı frontend proejsi olarak yazılır
-- Kullancıların görüceği kısım: React
-- Adminlerin görüceği kısım: Angular
-- Satıcıların görüceği kısım: HTML,CSS,JS
+- Uygulama birçok küçük, bağımsız servisten oluşur.
+- Her servis kendi veritabanına ve kendi kod tabanına sahiptir; birbirleriyle genellikle HTTP/REST veya mesaj kuyrukları üzerinden iletişim kurar.
+- Örn: Amazon'un farklı iş alanlarının ayrı backend servisleri olarak yazılması:
+- UserService → Kullanıcı yönetimi (kendi DB'si)
+- OrderService → Sipariş yönetimi (kendi DB'si)
+- PaymentService → Ödeme işlemleri (kendi DB'si)
+- InventoryService → Stok yönetimi (kendi DB'si)
+
+> Not: Bir uygulamanın frontend'ini (kullanıcı paneli, admin paneli, satıcı paneli) ayrı projelere bölmek **Microservices değil, Micro-Frontend** mimarisidir. Microservices kavramı backend servisleri için kullanılır.
 
 ## Katmanlı Mimari (Layered Architecture)
 
-- Kod katmanalara bölünür.
-- UI
+- Kod katmanlara bölünür.
+- UI (Sunum / Presentation)
 - Business (İş Mantığı)
-- Data (DB)
+- Data (Veri Erişimi / DB)
 
-- Katmanlı mimarinın bazı türleri: MVC, MVVM..
+- Katmanlı mimarinin bazı türleri: MVC, MVVM..
 
 - - MVC (Model-View-Controller)
-- - - Model: Veri yapısı ve veriyi yönetini kodları içerir.
-- - - View: Kullanıcı arayüzü kodlarını içerir.
-- - - Controller: İş mantığı ile alakalı kodları içerir.
+- - - Model: Veri yapısını, veriyi yöneten kodları ve iş mantığını (business logic) içerir.
+- - - View: Kullanıcı arayüzü (UI) kodlarını içerir.
+- - - Controller: View'dan gelen kullanıcı isteklerini alır, uygun Model'i çağırır ve sonucu uygun View'a yönlendirir. Yani Model ile View arasındaki koordinatördür; iş mantığı barındırmaz.
 
 ## Olay Tabanlı Mimari (Event-Driven Architecture)
 
-- Sistem, olaylar aracılığıyla bibirine haber gönderir.
+- Sistem, olaylar (event) aracılığıyla birbirine haber gönderir.
 - "Sipariş oluşturuldu", "kullanıcı kayıt oldu" gibi event'ler üretilir.
 
-## Doğru mimari terchinin faydaları?
+## Doğru mimari tercihinin faydaları?
 
 1. Performans: İyi tasarlanmış bir mimari ile sistemin, kaynakları verimli kullanılması sağlanabilir.
 2. Ölçeklenebilir.
 3. Bakım ve Geliştirilebilirliği Kolaylaştırır.
-4. Ekipler arası iş bir ve verimlilik artar.
-5. Maaliyet
-6. Yeniden kullanabilirlik
-7. Esneklik
+4. Ekipler arası iş birliği ve verimlilik artar.
+5. Maliyet düşer.
+6. Yeniden kullanılabilirlik artar.
+7. Esneklik sağlar.
 
 ## Ölçeklendirme (Scaling)
 
-- Kısa ve Net Tanım
-- Ölçeklendirme, bir uygulamanın trafik, kullanıcı, veri veya işlem yükü arttırıldığında performanını koruyarak çalışmaya devam etmesini sağlayacak şekilde yapılandırımasıdır.
+- Kısa ve Net Tanım:
+- Ölçeklendirme, bir uygulamanın trafik, kullanıcı, veri veya işlem yükü arttığında performansını koruyarak çalışmaya devam etmesini sağlayacak şekilde yapılandırılmasıdır.
 
 - Frontend dünyasında ölçeklendirme:
-- Daha fazla kullanıcı => daha fazla istek => daha fazla => daha fazla yönetimi
+- Daha fazla kullanıcı => daha fazla istek => daha fazla veri => daha fazla state yönetimi ihtiyacı
 
 ## Tasarım Deseni (Design Patterns)
 
