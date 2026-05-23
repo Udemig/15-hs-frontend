@@ -7,7 +7,7 @@ import { auth } from "../../firebase";
 
 const Nav = ({ user }) => {
   return (
-    <div className="flex flex-col justify-between items-end px-2 py-4">
+    <div className="sticky top-0 h-screen flex flex-col justify-between items-end px-2 py-4">
       {/* Üst Kısım */}
       <div>
         <img src="/x-logo.webp" alt="x" className="w-14 mb-4" />

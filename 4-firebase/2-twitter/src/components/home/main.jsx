@@ -3,8 +3,8 @@ import PostList from "../post/post-list";
 
 const Main = ({ user }) => {
   return (
-    <div className="border-x border-tw-gray overflow-y-auto main-container">
-      <header className="border-b border-tw-gray p-4 font-bold">Anasayfa</header>
+    <div className="border-x border-tw-gray">
+      <header className="sticky top-0 z-10 bg-primary/70 backdrop-blur border-b border-tw-gray p-4 font-bold">Anasayfa</header>
 
       <PostForm user={user} />
 

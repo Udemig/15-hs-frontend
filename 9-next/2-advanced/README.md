@@ -95,3 +95,82 @@
 - Server component'lar daha iyi olduğu için projelerimizde olabilidiğince çok server component kullanmaya çalışıcaz sadece zorunda kaldığımız durumlarda (kullanıcı etkileşimini izleyeceksek veya hook kullanıcaksak) client component kullanırız
 
 - Not: Next.js bizden olabildiğince çok server component kullanmamızı istediği için sayfa içerisinde kullanıcı etkileşimizi takip ediceğimiz bir yer varsa bütün sayfayı client componenta çevirmek yerine o kısmı ayrı bir client component haline getirip sayfanın geri kalanını server component olarak tutmak daha mantıklıdır.
+
+## İç İçe Kullanım
+
+- `Aynı türden` iki component'ı iç içe kullanmakta bir problem yoktur
+
+- Bir `server component` içerisinde `client component` kullanmakta bir problem yoktur
+
+- Bir `client component` içerisinde `server component`'ı import ederek kullanrsak server component özelliklerini kaybeder ve client component'a dönüşür
+
+- Bir `client component` içerisinde `server component`'ı HOC yöntemiyle children propu sayesinde kulanırsanız server component özelliklerini kaybetmez
+
+# Data Fetching
+
+- Next.js api'dan alınan veriyi cache'de tutar ve aynı api isteği tekrar atılırsa api'a tekrar istek atmak yerine cache'de tutulan veriyi kullanır
+
+- Bu sayede:
+- - ilk isteği atılan bütün isteklerde cevap beklemeye gerek kalmaz
+- - api'a gereksiz istek gitmez
+- - asenkron state'ler için context / redux / tanstack gibi yöntemlere gerek kalmaz
+
+- Next.js varsayılan olarak bütün api isteklerini cache'ler ama bazen biz cachelemesini önlemek isteyebiliriz. Bu durumda fetch methodunun ayarlarını buna göre yaparız
+
+# Next.js Methods
+
+## useRouter
+
+- sadece `client` component'larda kullanılabilir
+- proje içerisinde yönlendirme yapmak için kullanılır
+- back() | forward() | replace() | push() | refresh()
+
+## redirect
+
+- sadece `server` component'larda kullanılabilir
+- proje içerisinde yönlendirme yapmak için kullanılır
+- genelde yetkilendirme işlemlerinde kullanırız
+
+## notFound
+
+- hem `client` hem de `server` componentlarda kullanılabilir
+- ekrana 404 sayfasını basar
+
+## usePathname
+
+- sadece `client` component'larda kullanılabilir
+- url'den kullanıcının bulunduğu adresi getirir
+
+## useParams
+
+- sadece `client` component'larda kullanılabilir
+- url'deki parametrelere erişmemizi sağlar
+- server component'larda parametrelere prop yöntemiyle erişiriz
+
+## useSearchParams
+
+- sadece `client` component'larda kullanılabilir
+- url'deki query parametrelere erişmemizi sağlar
+- server component'larda query parametrelere prop yöntemiyle erişiriz
+
+# Form
+
+- Normal şartlarda formlarda bolca kullanıcı etkileşimi izlememiz gerektiğinden formları client component yaparız
+
+- Server action yöntemini kullanarak form içerisindeki veriye erişme ve form gönderilince fonksiyon çalıştırma işlemini server componentlarda yapabiliriz
+
+# Static Site Generation (SSG)
+
+- SGG, next.js'in build (derleme) sırasında sayfaları önceden html olarak üretip sunucuda saklamasıdır
+
+- Kullanıcı siteyi ziyaret ettiğinde sayfalar anında ve çok hızlı bir şekilde sunulur çünkü önceden hazırlanmıştır
+
+### Static Sayfa
+
+- Build anında html'i hazırlanıp sunucuda saklanır, kullanıcı sayfaya girdiğin tekrar hazırlanmadan direkt kullanıcıya sunulur
+- Varsayılan olarak url parametresi olmayan bütün sayfalar statik sayfa olur
+
+### Dinamik Sayfa
+
+- Kullanıcı sayfaya girdiği anda html'i hazırlanıp sunulan sayfalardır
+- Varsayılan olarak url parametresi olan sayfalar dinamik sayfa olur

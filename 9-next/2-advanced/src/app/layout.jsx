@@ -5,6 +5,7 @@ import LocalFont from "next/font/local";
 
 // remote font import
 import { Bebas_Neue } from "next/font/google";
+import Header from "@/components/header";
 
 // remote font kurulumu
 const bebas = Bebas_Neue({
@@ -27,7 +28,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`h-full antialiased ${bebas.variable} ${superMindset.variable}`}>
-      <body className={`min-h-full flex flex-col text-2xl p-10`}>{children}</body>
+      <body className={`min-h-full flex flex-col text-2xl`}>
+        <Header />
+
+        <main className="p-10">{children}</main>
+      </body>
     </html>
   );
 }

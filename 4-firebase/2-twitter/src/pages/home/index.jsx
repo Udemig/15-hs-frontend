@@ -7,7 +7,7 @@ const Home = () => {
   const user = useOutletContext();
 
   return (
-    <div className="h-screen bg-primary text-secondary overflow-hidden grid grid-cols-[1fr_minmax(300px,600px)_1fr]">
+    <div className="min-h-screen bg-primary text-secondary grid grid-cols-[1fr_minmax(300px,600px)_1fr] items-start">
       <Nav user={user} />
 
       <Main user={user} />

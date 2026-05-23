@@ -6,7 +6,10 @@ const nextConfig = {
   images: {
     qualities: [10, 20, 30, 40, 50, 75],
 
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "cdn.dummyjson.com" },
+    ],
   },
 };
 
