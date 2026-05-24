@@ -1,8 +1,16 @@
-import { fetchRecipeById } from "@/utils/service";
+import { delay } from "@/utils/delay";
+import { fetchRecipeById, fetchRecipes } from "@/utils/service";
 import Image from "next/image";
 import Link from "next/link";
 
+export const generateStaticParams = async () => {
+  const data = await fetchRecipes();
+
+  return data.recipes.map((i) => ({ id: String(i.id) }));
+};
+
 const Page = async ({ params }) => {
+  await delay(2000);
   const { id } = await params;
   const data = await fetchRecipeById(id);
 

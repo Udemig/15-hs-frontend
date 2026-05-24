@@ -174,3 +174,19 @@
 
 - Kullanıcı sayfaya girdiği anda html'i hazırlanıp sunulan sayfalardır
 - Varsayılan olarak url parametresi olan sayfalar dinamik sayfa olur
+
+### Static Bir Sayfayı Dinamik Hale Getirme (revalidate | dynamic)
+
+- Next.js varsayılan olarak parametreye sahip olmayan bütün sayfalrı statik yapar
+- Bazen biz static sayfada gösterilen verilerin sıkça güncelleneceğinden ve kullanıcıya eski içerik sunmak istemediğimizden statik sayfaları dinamik sayfaya çevirmek isteriz
+- Bunun için 2 yöntem vardır:
+- revalidate: statik olan sayfanın belirli aralıklarla yeniden oluşturulmasını sağlamak
+- dynamic: statik sayfayı tamamen dinamik hale çevirir
+
+### Dinamik Bir Sayfayı Statik Hale Getirme (generateStaticParams)
+
+- generateStaticParams, dinamik bir sayfanın statik şekilde oluşturulmasını sağlar.
+- build sırasında çağrılan dinamik route'lar için bir parametre listesini return ederiz:
+- - `generateStaticParams([{id:167},{id:235},{id:782}])`
+- - next.js bu parametre litesindeki her bir eleman için o sayfanın statik bir halini oluşturur.
+- Genelde içeriği çok değişmeyen detay sayfalarında tercih ederiz

@@ -1,8 +1,14 @@
+import { delay } from "@/utils/delay";
 import { fetchRecipes } from "@/utils/service";
 import Image from "next/image";
 import Link from "next/link";
 
+// export const dynamic = "force-dynamic";
+
+// export const revalidate = 60;
+
 const RecipesServer = async () => {
+  await delay(2000);
   const data = await fetchRecipes();
 
   return (

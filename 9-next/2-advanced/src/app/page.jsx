@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <div>
       <div className="my-10">
-        <h1 className="mb-5 font-super">Next.js Nedir</h1>
+        <h1 className="mb-5 font-super">Next.js Nedir????</h1>
 
         <p className="font-bebas">
           Next.js, modern ve yüksek performanslı web uygulamaları oluşturmak için kullanılan popüler bir React
