@@ -8,16 +8,20 @@ const CategoryChart: FC = async () => {
   const products = await getProducts();
 
   // kategori başına ürün sayısı
+  const countObj: Record<string, number> = {};
 
   // kategori başına ürün sayısını hesapla
+  products.forEach((product) => {
+    countObj[product.category] = (countObj[product.category] || 0) + 1;
+  });
 
   // grafik verisini hazırla
   const data: GraphData = {
-    labels: ["Elektronik", "Mücevher", "Yellow", "Green", "Purple", "Orange"],
+    labels: Object.keys(countObj),
     datasets: [
       {
-        label: "Kategoriler",
-        data: [12, 13, 3, 5, 2, 3],
+        label: "Ürün Sayısı",
+        data: Object.values(countObj),
         backgroundColor: [
           "#6366f1", // İndigo
           "#8b5cf6", // Mor
