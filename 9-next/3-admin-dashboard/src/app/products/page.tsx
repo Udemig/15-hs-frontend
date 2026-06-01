@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import { BiPlus } from "react-icons/bi";
 import Loading from "../loading";
 
+// export const dynamic = "force-dynamic";
+
 const Products = () => {
   return (
     <div className="page">

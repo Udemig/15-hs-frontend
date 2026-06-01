@@ -37,10 +37,9 @@ const UserTable: FC = async () => {
               </td>
               <td>
                 <div className="flex gap-2 justify-center">
-                  {/* TODO: MODAL */}
-                  <button className="button hover:bg-zinc-100" title="Detayları gör">
+                  <Link href={`?userId=${user.id}`} className="button hover:bg-zinc-100" title="Detayları gör">
                     <BsEye className="text-zinc-600" />
-                  </button>
+                  </Link>
 
                   <BanButton id={user.id} />
                 </div>

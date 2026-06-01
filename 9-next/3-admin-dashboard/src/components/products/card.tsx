@@ -30,8 +30,8 @@ const Card: FC<Props> = ({ product }) => {
         />
 
         <div className="absolute top-3 right-3">
-          <span className={`${stockClass} px-2.5 pt-1 rounded-full text-xs font-semibold ring-1 ring-inset`}>
-            {product.stock > 0 ? `${product.stock} adet` : "Stok yok"}
+          <span className={`${stockClass} px-2.5 py-1 rounded-full text-xs font-semibold ring-1 ring-inset`}>
+            {product.stock > 0 ? `${product.stock} adet` : "Stokta yok"}
           </span>
         </div>
       </div>

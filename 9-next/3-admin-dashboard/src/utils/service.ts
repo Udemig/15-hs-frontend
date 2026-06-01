@@ -12,7 +12,9 @@ export const getOrders = async (): Promise<Order[]> => {
 
 // bütün ürünleri getir
 export const getProducts = async (): Promise<Product[]> => {
-  const res = await fetch(`${BASE_URL}/products`);
+  const res = await fetch(`${BASE_URL}/products`, {
+    cache: "no-store",
+  });
 
   return res.json();
 };
@@ -56,6 +58,13 @@ export const updateProduct = async (id: string, productData: Omit<Product, "id">
 // bütün kullanıcları getir
 export const getUsers = async (): Promise<User[]> => {
   const res = await fetch(`${BASE_URL}/users`);
+
+  return res.json();
+};
+
+// bütün kullanıcları getir
+export const getOneUser = async (id: string): Promise<User> => {
+  const res = await fetch(`${BASE_URL}/users/${id}`);
 
   return res.json();
 };

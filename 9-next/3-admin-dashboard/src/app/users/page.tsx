@@ -1,7 +1,14 @@
+import UserModal from "@/components/modal/user-modal";
 import UserTable from "@/components/table/user-table";
 import { FC } from "react";
 
-const UsersPage: FC = () => {
+interface Props {
+  searchParams: Promise<{ userId?: string }>;
+}
+
+const UsersPage: FC<Props> = async ({ searchParams }) => {
+  const { userId } = await searchParams;
+
   return (
     <div className="page">
       <div>
@@ -10,6 +17,8 @@ const UsersPage: FC = () => {
       </div>
 
       <UserTable />
+
+      <UserModal userId={userId} />
     </div>
   );
 };

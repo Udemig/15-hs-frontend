@@ -10,6 +10,12 @@ interface Props {
 }
 
 const options = {
+  layout: {
+    padding: {
+      bottom: 16,
+    },
+  },
+
   plugins: {
     legend: {
       position: "bottom",
