@@ -4,8 +4,15 @@ import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import SearchForm from "./search-form";
 import { RiFileList3Line } from "react-icons/ri";
 import { FaShoppingCart } from "react-icons/fa";
+import { getBasket } from "@/service/basket-service";
 
-const Header: FC = () => {
+const Header: FC = async () => {
+  // sepet bilgilerini api'dan al
+  const { cart } = await getBasket();
+
+  // toplam ürün sayısını hesapla
+  const totalAmount = cart.items.reduce<number>((acc, item) => acc + item.quantity, 0);
+
   return (
     <header className="sticky top-0 z-10 bg-white flex justify-between items-center py-5 px-7 lg:py-6 lg:px-10 shadow-sm">
       <Link href="/" className="text-green-600 font-bold text-2xl lg:text-3xl flex items-center gap-2">
@@ -24,9 +31,11 @@ const Header: FC = () => {
         <Link href="/cart" className="header-link">
           <div className="relative">
             <FaShoppingCart className="text-2xl" />
-            <span className="absolute -right-3.75 -top-5 shadow font-bold text-sm text-shadow-xl bg-green-500 text-white size-6 grid place-items-center rounded-full tabular-nums">
-              3
-            </span>
+            {totalAmount > 0 && (
+              <span className="absolute -right-3.75 -top-5 shadow font-bold text-sm text-shadow-xl bg-green-500 text-white size-6 grid place-items-center rounded-full tabular-nums">
+                {totalAmount}
+              </span>
+            )}
           </div>
           <span className="max-md:hidden">Sepetim</span>
         </Link>
