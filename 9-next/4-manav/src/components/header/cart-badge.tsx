@@ -1,12 +1,14 @@
 "use client";
 
 import { getBasket } from "@/service/basket-service";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { BiLoader } from "react-icons/bi";
 import { FaShoppingCart } from "react-icons/fa";
 import useSWR from "swr";
 
 const CartBadge = () => {
+  const t = useTranslations("Header");
   const { isLoading, data } = useSWR("basket", getBasket);
 
   const totalAmount = data?.cart?.items?.reduce<number>((total, item) => total + item.quantity, 0) || 0;
@@ -20,7 +22,7 @@ const CartBadge = () => {
           {isLoading ? <BiLoader className="animate-spin" /> : totalAmount}
         </span>
       </div>
-      <span className="max-md:hidden">Sepetim</span>
+      <span className="max-md:hidden">{t("my-cart")}</span>
     </Link>
   );
 };

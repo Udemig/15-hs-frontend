@@ -1,23 +1,27 @@
 import { Product } from "@/types";
 import { FC } from "react";
+import { getTranslations } from "next-intl/server";
 
 interface Props {
   product: Product;
 }
 
-const ProductInfo: FC<Props> = ({ product }) => {
+const ProductInfo: FC<Props> = async ({ product }) => {
+  const t = await getTranslations("Product");
+  const tc = await getTranslations("Categories");
+
   const info = [
-    { title: "Kategori", value: product.category },
-    { title: "Menşei", value: product.origin },
-    { title: "Tazelik", value: `${product.expiryDays} gün` },
-    { title: "Organik", value: product.isOrganic ? "Evet" : "Hayır" },
-    { title: "Birim", value: product.unit },
-    { title: "Stok", value: product.stock },
+    { title: t("category"), value: tc(product.category as never) },
+    { title: t("origin"), value: product.origin },
+    { title: t("freshness"), value: t("days", { count: product.expiryDays }) },
+    { title: t("organic"), value: product.isOrganic ? t("yes") : t("no") },
+    { title: t("unit"), value: product.unit },
+    { title: t("stock"), value: product.stock },
   ];
 
   return (
     <div className="p-6 border-t border-gray-200">
-      <h1 className="text-xl font-semibold text-gray-800 mb-4">Ürün Bilgileri</h1>
+      <h1 className="text-xl font-semibold text-gray-800 mb-4">{t("product-info")}</h1>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {info.map((item, key) => (

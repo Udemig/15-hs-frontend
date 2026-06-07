@@ -1,0 +1,124 @@
+{
+  "Header": {
+    "my-orders": "Bestellungen",
+    "my-cart": "Warenkorb",
+    "search": "Nach Produkt oder Kategorie suchen"
+  },
+
+  "Hero": {
+    "title-1": "Bio-Produkte zu erschwinglichen Preisen",
+    "desc-1": "Gesunde Ernährung ist mit natürlichen und biologischen Produkten jetzt ganz einfach",
+    "button-1": "Bio-Produkte",
+    "title-2": "Gesunde Ernährung ist mit natürlichen und biologischen Produkten jetzt ganz einfach",
+    "desc-2": "Das frischeste Obst und Gemüse ist direkt verfügbar. Der erste Schritt zu einem gesunden Lebensstil beginnt bei Ihnen",
+    "button-2": "Einkauf starten"
+  },
+
+  "Features": {
+    "delivery-title": "Schnelle Lieferung",
+    "delivery-desc": "Schnelle Lieferung am selben Tag",
+    "organic-title": "Frische Produkte",
+    "organic-desc": "Täglich frische Produkte",
+    "price-title": "Erschwingliche Preise",
+    "price-desc": "Die besten Preise",
+    "security-title": "Sicheres Einkaufen",
+    "security-desc": "Sicheres Einkaufen nach hohen Sicherheitsstandards"
+  },
+
+  "LocaleSwitcher": {
+    "label": "Sprache",
+    "tr": "Türkisch",
+    "en": "Englisch",
+    "de": "Deutsch"
+  },
+
+  "Cart": {
+    "title": "Warenkorb",
+    "your-cart": "Ihr Warenkorb",
+    "clear": "Leeren",
+    "cleared": "Ihr Warenkorb wurde geleert",
+    "empty-title": "Sie haben noch keine Produkte in den Warenkorb gelegt",
+    "browse": "Produkte ansehen",
+    "summary": "Bestellübersicht",
+    "products-total": "Produkte Gesamt",
+    "shipping": "Versand",
+    "free": "Kostenlos",
+    "total": "Gesamt",
+    "continue-shopping": "Weiter einkaufen",
+    "checkout": "Zur Kasse",
+    "min-order": "Der Mindestbestellwert beträgt 50₺",
+    "added": "Produkt zum Warenkorb hinzugefügt",
+    "action-failed": "Vorgang fehlgeschlagen",
+    "error": "Ein Fehler ist aufgetreten"
+  },
+
+  "Product": {
+    "back-home": "Zurück zur Startseite",
+    "vat-included": "inkl. MwSt.",
+    "same-day-delivery": "Lieferung am selben Tag möglich",
+    "stock-status": "Lagerbestand",
+    "nutritional-values": "Nährwerte",
+    "product-info": "Produktinformationen",
+    "add-to-cart": "In den Warenkorb",
+    "buy-now": "Jetzt kaufen",
+    "added-to-cart": "{quantity} {unit} {name} zum Warenkorb hinzugefügt",
+    "min-order": "Der Mindestbestellwert beträgt 50₺",
+    "category": "Kategorie",
+    "origin": "Herkunft",
+    "freshness": "Frische",
+    "days": "{count} Tage",
+    "organic": "Bio",
+    "yes": "Ja",
+    "no": "Nein",
+    "unit": "Einheit",
+    "stock": "Lager"
+  },
+
+  "Orders": {
+    "title": "Meine Bestellungen",
+    "not-found": "Keine Bestellungen gefunden",
+    "back-home": "Zurück zur Startseite",
+    "total": "Gesamt",
+    "customer": "Kunde",
+    "delivery-address": "Lieferadresse",
+    "store-pickup": "Abholung im Geschäft"
+  },
+
+  "Success": {
+    "title": "Zahlung erfolgreich",
+    "total-price": "Gesamtpreis",
+    "my-orders": "Meine Bestellungen",
+    "home": "Startseite"
+  },
+
+  "Cancel": {
+    "title": "Zahlung fehlgeschlagen",
+    "desc": "Bei der Zahlungsabwicklung ist ein Problem aufgetreten",
+    "retry-later": "Bitte versuchen Sie es später erneut",
+    "home": "Startseite"
+  },
+
+  "Error": {
+    "title": "Entschuldigung, etwas ist schiefgelaufen",
+    "retry": "Erneut versuchen"
+  },
+
+  "NotFound": {
+    "message": "Der gesuchte Inhalt wurde nicht gefunden",
+    "home": "Zurück zur Startseite"
+  },
+
+  "Footer": {
+    "rights": "Manav Market © {year} Alle Rechte vorbehalten"
+  },
+
+  "Categories": {
+    "meyveler": "Obst",
+    "sebzeler": "Gemüse",
+    "sut-urunleri": "Milchprodukte",
+    "et-urunleri": "Fleischprodukte",
+    "bakliyat": "Hülsenfrüchte",
+    "icecekler": "Getränke",
+    "firindan": "Aus der Bäckerei"
+  }
+}

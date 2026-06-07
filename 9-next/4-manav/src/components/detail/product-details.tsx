@@ -6,12 +6,15 @@ import { TbWeight } from "react-icons/tb";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { FaShoppingBasket } from "react-icons/fa";
 import OrderButtons from "./order-buttons";
+import { getTranslations } from "next-intl/server";
 
 interface Props {
   product: Product;
 }
 
-const ProductDetails: FC<Props> = ({ product }) => {
+const ProductDetails: FC<Props> = async ({ product }) => {
+  const t = await getTranslations("Product");
+
   return (
     <div className="md:flex">
       {/* Resim */}
@@ -36,7 +39,7 @@ const ProductDetails: FC<Props> = ({ product }) => {
 
         <div className="mt-4">
           <p className="text-3xl font-bold text-green-600">{product.price}₺</p>
-          <p className="text-gray-500">KDV Dahil</p>
+          <p className="text-gray-500">{t("vat-included")}</p>
         </div>
 
         <div className="my-6 h-px bg-gray-200" />
@@ -44,18 +47,18 @@ const ProductDetails: FC<Props> = ({ product }) => {
         <div className="space-y-2 mb-6">
           <div className="flex items-center gap-2 text-gray-700">
             <MdOutlineLocalShipping className="text-xl text-green-600" />
-            <span>Aynı gün teslimat imkanı</span>
+            <span>{t("same-day-delivery")}</span>
           </div>
 
           <div className="flex items-center gap-2 text-gray-700">
             <FaShoppingBasket className="text-xl text-green-600" />
             <span>
-              Stok Durumu: <b>{product.stock}</b> {product.unit}
+              {t("stock-status")}: <b>{product.stock}</b> {product.unit}
             </span>
           </div>
 
           <div className="text-gray-700 mt-4">
-            <h3 className="font-semibold mb-1">Beslenme Değerleri</h3>
+            <h3 className="font-semibold mb-1">{t("nutritional-values")}</h3>
             <p>{product.nutritionalValue}</p>
           </div>
         </div>

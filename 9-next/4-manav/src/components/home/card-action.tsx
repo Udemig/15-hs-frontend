@@ -1,6 +1,7 @@
 "use client";
 
 import { addToBasket } from "@/service/basket-service";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import { FaPlus, FaSpinner } from "react-icons/fa";
@@ -15,6 +16,7 @@ interface Props {
 const CardAction: FC<Props> = ({ productId, stock }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
+  const t = useTranslations("Cart");
 
   const handleBasket = () => {
     if (stock === 0) return;
@@ -22,7 +24,7 @@ const CardAction: FC<Props> = ({ productId, stock }) => {
 
     addToBasket(productId, 1)
       .then(() => {
-        toast.success("Ürün sepete eklendi");
+        toast.success(t("added"));
         mutate("basket");
       })
       .catch((err) => toast.error(err.message))

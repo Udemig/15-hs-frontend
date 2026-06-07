@@ -1,0 +1,124 @@
+{
+  "Header": {
+    "my-orders": "Orders",
+    "my-cart": "Cart",
+    "search": "Search for a product or category"
+  },
+
+  "Hero": {
+    "title-1": "Organic Products at Affordable Prices",
+    "desc-1": "Healthy eating is now easier than ever with natural and organic products",
+    "button-1": "Organic Products",
+    "title-2": "Healthy eating is now easier than ever with natural and organic products",
+    "desc-2": "The freshest fruits and vegetables are right at your fingertips. Your first step toward a healthy lifestyle starts here",
+    "button-2": "Start Shopping"
+  },
+
+  "Features": {
+    "delivery-title": "Fast Delivery",
+    "delivery-desc": "Same-day fast delivery",
+    "organic-title": "Fresh Products",
+    "organic-desc": "Fresh daily products",
+    "price-title": "Affordable Prices",
+    "price-desc": "The best prices",
+    "security-title": "Secure Shopping",
+    "security-desc": "Safe shopping with high security standards"
+  },
+
+  "LocaleSwitcher": {
+    "label": "Language",
+    "tr": "Turkish",
+    "en": "English",
+    "de": "German"
+  },
+
+  "Cart": {
+    "title": "Shopping Cart",
+    "your-cart": "Your Cart",
+    "clear": "Clear",
+    "cleared": "Your cart has been cleared",
+    "empty-title": "You haven't added any products to your cart yet",
+    "browse": "Browse Products",
+    "summary": "Order Summary",
+    "products-total": "Products Total",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Total",
+    "continue-shopping": "Continue Shopping",
+    "checkout": "Checkout",
+    "min-order": "The minimum order amount is 50₺",
+    "added": "Product added to cart",
+    "action-failed": "Operation failed",
+    "error": "An error occurred"
+  },
+
+  "Product": {
+    "back-home": "Back to Home",
+    "vat-included": "VAT Included",
+    "same-day-delivery": "Same-day delivery available",
+    "stock-status": "Stock Status",
+    "nutritional-values": "Nutritional Values",
+    "product-info": "Product Information",
+    "add-to-cart": "Add to Cart",
+    "buy-now": "Buy Now",
+    "added-to-cart": "{quantity} {unit} {name} added to cart",
+    "min-order": "The minimum order amount is 50₺",
+    "category": "Category",
+    "origin": "Origin",
+    "freshness": "Freshness",
+    "days": "{count} days",
+    "organic": "Organic",
+    "yes": "Yes",
+    "no": "No",
+    "unit": "Unit",
+    "stock": "Stock"
+  },
+
+  "Orders": {
+    "title": "My Orders",
+    "not-found": "No Orders Found",
+    "back-home": "Back to Home",
+    "total": "Total",
+    "customer": "Customer",
+    "delivery-address": "Delivery Address",
+    "store-pickup": "Store Pickup"
+  },
+
+  "Success": {
+    "title": "Payment Successful",
+    "total-price": "Total Price",
+    "my-orders": "My Orders",
+    "home": "Home"
+  },
+
+  "Cancel": {
+    "title": "Payment Failed",
+    "desc": "There was a problem processing your payment",
+    "retry-later": "Please try again later",
+    "home": "Home"
+  },
+
+  "Error": {
+    "title": "Sorry, something went wrong",
+    "retry": "Try Again"
+  },
+
+  "NotFound": {
+    "message": "The content you are looking for was not found",
+    "home": "Back to Home"
+  },
+
+  "Footer": {
+    "rights": "Manav Market © {year} All Rights Reserved"
+  },
+
+  "Categories": {
+    "meyveler": "Fruits",
+    "sebzeler": "Vegetables",
+    "sut-urunleri": "Dairy Products",
+    "et-urunleri": "Meat Products",
+    "bakliyat": "Legumes",
+    "icecekler": "Beverages",
+    "firindan": "From the Bakery"
+  }
+}

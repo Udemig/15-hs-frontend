@@ -4,24 +4,28 @@ import ClearButton from "@/components/cart/clear-button";
 import EmptyCart from "@/components/cart/empty-cart";
 import { getBasket } from "@/service/basket-service";
 import { FC } from "react";
+import { getTranslations } from "next-intl/server";
 
 export const dynamic = "force-dynamic";
 
 const Cart: FC = async () => {
   const { cart } = await getBasket();
+  const t = await getTranslations("Cart");
 
   if (cart.items.length === 0) return <EmptyCart />;
 
   return (
     <div className="page">
-      <h1 className="text-2xl font-bold mb-6 text-gray-800">Alışveriş Sepeti</h1>
+      <h1 className="text-2xl font-bold mb-6 text-gray-800">{t("title")}</h1>
 
       <div className="lg:flex gap-6">
         {/* Ürünler */}
         <div className="lg:w-2/3">
           <div className="bg-white rounded-lg shadow overflow-hidden">
             <div className="flex items-center justify-between p-4 border-b">
-              <h2>Sepetiniz ({cart.items.length})</h2>
+              <h2>
+                {t("your-cart")} ({cart.items.length})
+              </h2>
 
               <ClearButton />
             </div>

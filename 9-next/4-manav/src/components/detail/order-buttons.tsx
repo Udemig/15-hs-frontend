@@ -2,6 +2,7 @@
 
 import { addToBasket, checkoutSingleItem } from "@/service/basket-service";
 import { Product } from "@/types";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import { FaMinus, FaPlus, FaShoppingCart } from "react-icons/fa";
@@ -15,6 +16,7 @@ interface Props {
 const OrderButtons: FC<Props> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
+  const t = useTranslations("Product");
 
   // sepete ekle
   const handleBasket = () => {
@@ -26,7 +28,7 @@ const OrderButtons: FC<Props> = ({ product }) => {
       .then(() => {
         mutate("basket");
         setQuantity(1);
-        toast.success(`${quantity} ${product.unit} ${product.name} sepete eklendi`);
+        toast.success(t("added-to-cart", { quantity, unit: product.unit, name: product.name }));
       })
       .catch((err) => toast.error(err.message))
       .finally(() => setLoading(false));
@@ -36,7 +38,7 @@ const OrderButtons: FC<Props> = ({ product }) => {
   const handleBuyNow = () => {
     if (quantity < 1 || quantity > product.stock) return;
 
-    if (quantity * product.price <= 50) return toast.warning("Minimum sipariş tutarı 50₺'dir");
+    if (quantity * product.price <= 50) return toast.warning(t("min-order"));
 
     setLoading(true);
 
@@ -74,7 +76,7 @@ const OrderButtons: FC<Props> = ({ product }) => {
       <div className="flex items-center gap-3 mt-4">
         <button onClick={handleBasket} disabled={loading} className="order-button">
           <FaShoppingCart />
-          Sepete Ekle
+          {t("add-to-cart")}
         </button>
 
         <button
@@ -82,7 +84,7 @@ const OrderButtons: FC<Props> = ({ product }) => {
           disabled={loading}
           className="order-button bg-green-600 text-white hover:bg-green-700"
         >
-          Hemen Satın Al
+          {t("buy-now")}
         </button>
       </div>
     </div>

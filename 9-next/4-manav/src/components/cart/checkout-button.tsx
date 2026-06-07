@@ -1,6 +1,7 @@
 "use client";
 
 import { checkoutBasket } from "@/service/basket-service";
+import { useTranslations } from "next-intl";
 import { FC, useState } from "react";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
 import { toast } from "react-toastify";
@@ -11,9 +12,10 @@ interface Props {
 
 const CheckoutButton: FC<Props> = ({ totalPrice }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const t = useTranslations("Cart");
 
   const handleCheckout = async () => {
-    if (totalPrice <= 50) return toast.warning("Minimum sipariş tutarı 50₺'dir");
+    if (totalPrice <= 50) return toast.warning(t("min-order"));
 
     setIsLoading(true);
 
@@ -24,7 +26,7 @@ const CheckoutButton: FC<Props> = ({ totalPrice }) => {
       // kullanıcıyı backendin gönderdiği url'e yönlendir
       window.location.href = res.url;
     } catch {
-      toast.error("Bir hata oluştu");
+      toast.error(t("error"));
     } finally {
       setIsLoading(false);
     }
@@ -37,7 +39,7 @@ const CheckoutButton: FC<Props> = ({ totalPrice }) => {
       className="flex items-center cursor-pointer justify-center gap-2 w-full bg-green-600 text-white px-4 h-10 rounded-md hover:bg-green-700"
     >
       <MdOutlineShoppingCartCheckout />
-      Ödeme Yap
+      {t("checkout")}
     </button>
   );
 };

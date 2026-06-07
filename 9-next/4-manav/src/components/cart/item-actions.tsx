@@ -2,6 +2,7 @@
 
 import { removeFromBasket, updateQuantity } from "@/service/basket-service";
 import { BasketItem } from "@/types";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
@@ -15,6 +16,7 @@ interface Props {
 const ItemActions: FC<Props> = ({ item }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
+  const t = useTranslations("Cart");
 
   const handleQuantity = async (newQuantity: number) => {
     setIsLoading(true);
@@ -24,7 +26,7 @@ const ItemActions: FC<Props> = ({ item }) => {
       router.refresh(); // server component'da çekilen veriyi güncellemek için
       mutate("basket"); // client component'da çekilen veriyi güncellemek için
     } catch {
-      toast.error("İşlem başarısız");
+      toast.error(t("action-failed"));
     } finally {
       setIsLoading(false);
     }
@@ -38,7 +40,7 @@ const ItemActions: FC<Props> = ({ item }) => {
       router.refresh();
       mutate("basket");
     } catch {
-      toast.error("İşlem başarısız");
+      toast.error(t("action-failed"));
     } finally {
       setIsLoading(false);
     }

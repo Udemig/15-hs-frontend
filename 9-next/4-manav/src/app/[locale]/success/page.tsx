@@ -3,19 +3,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import { IoIosCheckmark } from "react-icons/io";
+import { getTranslations } from "next-intl/server";
 
 export const dynamic = "force-dynamic";
 
 const SuccessPage: FC = async () => {
   const { orders } = await getOrders();
   const order = orders.at(-1);
+  const t = await getTranslations("Success");
 
   return (
     <div className="h-[80vh]">
       <div className="h-2/5 bg-green-500 text-white grid place-items-center">
         <div className="flex flex-col items-center gap-10">
           <IoIosCheckmark className="text-[100px]" />
-          <p className="font-semibold text-4xl">Ödeme Başarılı Oldu</p>
+          <p className="font-semibold text-4xl">{t("title")}</p>
         </div>
       </div>
 
@@ -36,15 +38,17 @@ const SuccessPage: FC = async () => {
             ))}
           </ul>
 
-          <p className="text-end my-5">Toplam Fiyat: {order?.total_amount}₺</p>
+          <p className="text-end my-5">
+            {t("total-price")}: {order?.total_amount}₺
+          </p>
         </div>
 
         <div className="text-center my-5 flex gap-5 justify-center">
           <Link href="/orders" className="border shadow py-2 px-5 rounded-lg hover:shadow-lg hover:bg-gray-100">
-            Siparişlerim
+            {t("my-orders")}
           </Link>
           <Link href="/" className="border shadow py-2 px-5 rounded-lg hover:shadow-lg hover:bg-gray-100">
-            Anasayfa
+            {t("home")}
           </Link>
         </div>
       </div>

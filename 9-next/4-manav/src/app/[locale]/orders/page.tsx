@@ -3,26 +3,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import { FaPhone, FaStore, FaTruck } from "react-icons/fa";
+import { getTranslations } from "next-intl/server";
 
 export const dynamic = "force-dynamic";
 
 const Orders: FC = async () => {
   const { orders } = await getOrders();
+  const t = await getTranslations("Orders");
 
   if (orders.length === 0)
     return (
       <div className="my-60 text-center">
-        <h1 className="page text-2xl text-center">Sipariş Bulanamadı</h1>
+        <h1 className="page text-2xl text-center">{t("not-found")}</h1>
 
         <Link href="/" className="border border-zinc-400 rounded-lg py-2 px-6 hover:underline">
-          Anasayfa'ya Dön
+          {t("back-home")}
         </Link>
       </div>
     );
 
   return (
     <div className="page">
-      <h1 className="text-2xl font-bold mb-6">Siparişlerim</h1>
+      <h1 className="text-2xl font-bold mb-6">{t("title")}</h1>
 
       <div className="space-y-4">
         {orders.map((order) => (
@@ -52,7 +54,7 @@ const Orders: FC = async () => {
 
               {/* Toplam */}
               <div className="flex justify-end items-center gap-2 py-3 border-t border-gray-200">
-                <span className="text-gray-600">Toplam: </span>
+                <span className="text-gray-600">{t("total")}: </span>
                 <h5 className="text-xl font-bold text-green-600">{order.total_amount}₺</h5>
               </div>
 
@@ -61,7 +63,7 @@ const Orders: FC = async () => {
                 <div className="flex items-center gap-3">
                   <FaPhone className="text-green-600" />
                   <div>
-                    <h5 className="text-sm text-gray-500">Müşteri</h5>
+                    <h5 className="text-sm text-gray-500">{t("customer")}</h5>
                     <p>{order.customer_name}</p>
                     <p className="text-sm text-gray-700">{order.customer_phone}</p>
                   </div>
@@ -72,7 +74,7 @@ const Orders: FC = async () => {
 
                   <div>
                     <h5 className="text-sm text-gray-500">
-                      {order.is_delivery ? "Teslimat Adresi" : "Mağazadan Alım"}
+                      {order.is_delivery ? t("delivery-address") : t("store-pickup")}
                     </h5>
                     <p>{order.customer_name}</p>
                     {order.is_delivery && <p className="text-sm text-gray-700">{order.delivery_address}</p>}
