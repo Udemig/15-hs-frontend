@@ -17,16 +17,18 @@ export interface Product {
 export interface Basket {
   _id: string;
   userId: string;
-  items: {
-    grocery: Product;
-    quantity: number;
-    price: number;
-    name: string;
-    _id: string;
-  }[];
+  items: BasketItem[];
 
   totalAmount: number;
   __v: number;
+}
+
+export interface BasketItem {
+  grocery: Product;
+  quantity: number;
+  price: number;
+  name: string;
+  _id: string;
 }
 
 export interface Order {
@@ -55,4 +57,4 @@ export type ProductsRes = Promise<{ groceries: Product[] }>;
 export type ProductRes = Promise<{ grocery: Product }>;
 export type BasketRes = Promise<{ cart: Basket }>;
 export type URLRes = Promise<{ url: string }>;
-export type OrderRes = Promise<{orders:Order[]}>
+export type OrderRes = Promise<{ orders: Order[] }>;

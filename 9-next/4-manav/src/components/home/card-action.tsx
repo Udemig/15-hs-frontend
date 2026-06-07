@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import { FaPlus, FaSpinner } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { mutate } from "swr";
 
 interface Props {
   productId: string;
@@ -22,7 +23,7 @@ const CardAction: FC<Props> = ({ productId, stock }) => {
     addToBasket(productId, 1)
       .then(() => {
         toast.success("Ürün sepete eklendi");
-        router.refresh();
+        mutate("basket");
       })
       .catch((err) => toast.error(err.message))
       .finally(() => setLoading(false));

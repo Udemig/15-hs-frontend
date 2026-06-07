@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import { FaMinus, FaPlus, FaShoppingCart } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { mutate } from "swr";
 
 interface Props {
   product: Product;
@@ -14,7 +15,6 @@ interface Props {
 const OrderButtons: FC<Props> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
-  const router = useRouter();
 
   // sepete ekle
   const handleBasket = () => {
@@ -24,7 +24,7 @@ const OrderButtons: FC<Props> = ({ product }) => {
 
     addToBasket(product._id, quantity)
       .then(() => {
-        router.refresh();
+        mutate("basket");
         setQuantity(1);
         toast.success(`${quantity} ${product.unit} ${product.name} sepete eklendi`);
       })
@@ -35,6 +35,8 @@ const OrderButtons: FC<Props> = ({ product }) => {
   // hemen satın al
   const handleBuyNow = () => {
     if (quantity < 1 || quantity > product.stock) return;
+
+    if (quantity * product.price <= 50) return toast.warning("Minimum sipariş tutarı 50₺'dir");
 
     setLoading(true);
 

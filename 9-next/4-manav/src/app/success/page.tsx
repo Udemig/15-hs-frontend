@@ -4,11 +4,11 @@ import Link from "next/link";
 import { FC } from "react";
 import { IoIosCheckmark } from "react-icons/io";
 
+export const dynamic = "force-dynamic";
+
 const SuccessPage: FC = async () => {
   const { orders } = await getOrders();
   const order = orders.at(-1);
-
-  console.log(order);
 
   return (
     <div className="h-[80vh]">

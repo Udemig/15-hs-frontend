@@ -144,6 +144,8 @@ async function handleCartCheckout(data: any) {
   // Kullanıcının sepetini bul
   const cart = await Cart.findOne({ userId }).populate("items.grocery");
 
+  console.log("cart", cart);
+
   if (!cart || cart.items.length === 0) {
     return NextResponse.json({ message: "Sepet boş veya bulunamadı" }, { status: 404 });
   }
